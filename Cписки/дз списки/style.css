@@ -1,0 +1,64 @@
+
+body
+{
+	width: 500px;
+	height: 800px;
+	padding: 15px;
+	background: lightgrey;
+}
+.box h1
+{
+	text-align: left;
+	font-size: 20px;
+	padding-left: 12px;
+}
+.boxes ul
+{
+	background: #B0C4DE;
+	list-style-position: inside;
+	list-style-type: none;	
+	width: 500;
+	padding: 1px;
+	margin: 10px;
+
+}
+.boxes ul li
+{	
+	background: #1E90FF;
+	padding: 1px;
+	font-size: 18px;
+	width: 500px;
+}
+.boxes ul li span#check_box
+{
+	color: black;
+	font-size: 22px;
+	padding: 1px;
+	position: static;
+}
+.boxes ul li span#close
+{
+	color: red;
+	font-size: 20px;
+	padding-top:7px;
+	position: absolute;
+}
+.boxes ul li#li1
+{
+	background: #6495ED;
+	width: 500px;
+	height: 30px;
+}
+.boxes ul li#li2
+{
+	background: darkgrey;
+	width: 500px;
+	height: 30px;
+}
+.boxes ul li#li3
+{
+	background: #87CEFA;
+	width: 500px;
+	height: 30px;
+
+}

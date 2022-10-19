@@ -1,0 +1,124 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body{
+	font-family: 'Robot', sans-serif;
+}
+nav
+{
+	width: 80%;
+	margin: auto;
+	border-bottom: 1px solid blue;
+	display: flex;
+	padding: 1em 0;
+	justify-content:space-between ;
+	align-items: center;
+}
+nav figure {
+text-transform: uppercase;
+color: darkslateblue;
+letter-spacing: 2px;
+}
+.material-symbols-outlined
+{
+	position: absolute;
+	font-size: 1.5em;
+}
+nav ul li{
+	display: inline-block;
+	list-style-type: none;
+}
+
+nav ul li a 
+{
+	color: white;
+	text-decoration: none;
+	margin-left: 1.5em;
+	text-transform: uppercase;
+	background: lightblue;
+	padding: 0.5em;
+	border-radius: 2px;
+}
+nav ul li a:hover
+{
+	background: darkcyan;
+	color: white;
+	transition: 0.5s;
+}
+header
+{
+	width: 80%;
+	margin: auto;
+	height: 80vh;
+	background: url(https://images.unsplash.com/photo-1501630834273-4b5604d2ee31?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fHNreXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60) no-repeat;
+	background-size: cover;
+	text-align: center;
+}
+header h1
+{
+	font-size: 6em;
+	color: #7e67cf;
+	text-transform: uppercase;
+	font-weight: 100;
+	padding-top: 5%;
+}
+header p{
+color: #343f94;
+font-weight: 300;
+font-size: 1.2em;
+}
+header button
+{
+	border: none;
+	background: #7e67cf rgba(206, 237, 221, 0.8);
+	color: #5a495e;
+	padding: 0.8em 3em;
+	font-size: 1.1em;
+	border-radius: 6px;
+	margin-top: 1.2%;
+	cursor: pointer;
+}
+header button:hover
+{
+	background:#b6bfde;
+	transition: 0.5s;
+}
+main
+{
+width: 80%;
+padding: 2em 0;
+background: #f0dde7;
+margin: auto;
+}
+main h3{
+	text-align: center;
+	font-size: 3em;
+	color: #7e67cf;
+	text-transform: uppercase;
+	font-weight: 300;
+	padding-top: 2%;
+}
+main .wrapper_box
+{
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	padding-top: 4%;
+}
+main .wrapper_box .box
+{
+	flex-basis: 20%;
+	height: 350px;
+	background: #c2a1a9;
+}
+footer
+{
+width: 80%;
+padding: 1em;
+background: #c2a1a9;
+margin: auto;
+text-align: center;
+color: whitesmoke;
+}

@@ -1,0 +1,21 @@
+body
+{
+    background: lightgrey;
+}
+dl
+{
+   
+    padding: 10px;
+}
+dl dt
+{
+    padding-top:10px;
+}
+dl dd ol li span#gray
+{
+    color:darkgrey;
+}
+dl dd ol li span#blue
+{
+    color:blue;
+}

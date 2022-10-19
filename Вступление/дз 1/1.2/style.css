@@ -1,0 +1,34 @@
+body
+{
+    font-family: 'Akshar', sans-serif;
+   background: #DCDCDC;
+}
+.box
+{
+width: 640px;
+height: 600px;
+
+}
+.box h1
+{
+ text-align: center;    
+}
+.box hr
+{
+    margin: 5px;
+color: darkgrey;
+width: 610px;
+}
+.box h2
+{
+    text-align: center;
+}
+.box p
+{
+font-size: 14px;
+}
+.box span
+{
+    color: darkred;
+    background: darkgrey;
+}
