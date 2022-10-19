@@ -1,0 +1,22 @@
+D:\Observer\obj\Debug\netcoreapp2.2\Observer.csprojAssemblyReference.cache
+D:\Observer\obj\Debug\netcoreapp2.2\Observer.csproj.CoreCompileInputs.cache
+D:\Observer\obj\Debug\netcoreapp2.2\Observer.AssemblyInfoInputs.cache
+D:\Observer\obj\Debug\netcoreapp2.2\Observer.AssemblyInfo.cs
+D:\Observer\bin\Debug\netcoreapp2.2\Observer.deps.json
+D:\Observer\bin\Debug\netcoreapp2.2\Observer.runtimeconfig.json
+D:\Observer\bin\Debug\netcoreapp2.2\Observer.runtimeconfig.dev.json
+D:\Observer\bin\Debug\netcoreapp2.2\Observer.dll
+D:\Observer\bin\Debug\netcoreapp2.2\Observer.pdb
+D:\Observer\obj\Debug\netcoreapp2.2\Observer.dll
+D:\Observer\obj\Debug\netcoreapp2.2\Observer.pdb
+D:\.NET на С#\Observer\bin\Debug\netcoreapp2.2\Observer.deps.json
+D:\.NET на С#\Observer\bin\Debug\netcoreapp2.2\Observer.runtimeconfig.json
+D:\.NET на С#\Observer\bin\Debug\netcoreapp2.2\Observer.runtimeconfig.dev.json
+D:\.NET на С#\Observer\bin\Debug\netcoreapp2.2\Observer.dll
+D:\.NET на С#\Observer\bin\Debug\netcoreapp2.2\Observer.pdb
+D:\.NET на С#\Observer\obj\Debug\netcoreapp2.2\Observer.csprojAssemblyReference.cache
+D:\.NET на С#\Observer\obj\Debug\netcoreapp2.2\Observer.csproj.CoreCompileInputs.cache
+D:\.NET на С#\Observer\obj\Debug\netcoreapp2.2\Observer.AssemblyInfoInputs.cache
+D:\.NET на С#\Observer\obj\Debug\netcoreapp2.2\Observer.AssemblyInfo.cs
+D:\.NET на С#\Observer\obj\Debug\netcoreapp2.2\Observer.dll
+D:\.NET на С#\Observer\obj\Debug\netcoreapp2.2\Observer.pdb

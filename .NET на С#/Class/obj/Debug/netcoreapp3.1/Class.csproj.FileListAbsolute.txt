@@ -1,0 +1,13 @@
+D:\.NET на С#\Class\bin\Debug\netcoreapp3.1\Class.exe
+D:\.NET на С#\Class\bin\Debug\netcoreapp3.1\Class.deps.json
+D:\.NET на С#\Class\bin\Debug\netcoreapp3.1\Class.runtimeconfig.json
+D:\.NET на С#\Class\bin\Debug\netcoreapp3.1\Class.runtimeconfig.dev.json
+D:\.NET на С#\Class\bin\Debug\netcoreapp3.1\Class.dll
+D:\.NET на С#\Class\bin\Debug\netcoreapp3.1\Class.pdb
+D:\.NET на С#\Class\obj\Debug\netcoreapp3.1\Class.csprojAssemblyReference.cache
+D:\.NET на С#\Class\obj\Debug\netcoreapp3.1\Class.AssemblyInfoInputs.cache
+D:\.NET на С#\Class\obj\Debug\netcoreapp3.1\Class.AssemblyInfo.cs
+D:\.NET на С#\Class\obj\Debug\netcoreapp3.1\Class.csproj.CoreCompileInputs.cache
+D:\.NET на С#\Class\obj\Debug\netcoreapp3.1\Class.dll
+D:\.NET на С#\Class\obj\Debug\netcoreapp3.1\Class.pdb
+D:\.NET на С#\Class\obj\Debug\netcoreapp3.1\Class.genruntimeconfig.cache

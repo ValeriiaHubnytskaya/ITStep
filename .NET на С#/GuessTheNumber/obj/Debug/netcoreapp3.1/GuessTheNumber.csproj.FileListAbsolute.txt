@@ -1,0 +1,13 @@
+D:\.NET на С#\GuessTheNumber\bin\Debug\netcoreapp3.1\GuessTheNumber.exe
+D:\.NET на С#\GuessTheNumber\bin\Debug\netcoreapp3.1\GuessTheNumber.deps.json
+D:\.NET на С#\GuessTheNumber\bin\Debug\netcoreapp3.1\GuessTheNumber.runtimeconfig.json
+D:\.NET на С#\GuessTheNumber\bin\Debug\netcoreapp3.1\GuessTheNumber.runtimeconfig.dev.json
+D:\.NET на С#\GuessTheNumber\bin\Debug\netcoreapp3.1\GuessTheNumber.dll
+D:\.NET на С#\GuessTheNumber\bin\Debug\netcoreapp3.1\GuessTheNumber.pdb
+D:\.NET на С#\GuessTheNumber\obj\Debug\netcoreapp3.1\GuessTheNumber.csprojAssemblyReference.cache
+D:\.NET на С#\GuessTheNumber\obj\Debug\netcoreapp3.1\GuessTheNumber.AssemblyInfoInputs.cache
+D:\.NET на С#\GuessTheNumber\obj\Debug\netcoreapp3.1\GuessTheNumber.AssemblyInfo.cs
+D:\.NET на С#\GuessTheNumber\obj\Debug\netcoreapp3.1\GuessTheNumber.csproj.CoreCompileInputs.cache
+D:\.NET на С#\GuessTheNumber\obj\Debug\netcoreapp3.1\GuessTheNumber.dll
+D:\.NET на С#\GuessTheNumber\obj\Debug\netcoreapp3.1\GuessTheNumber.pdb
+D:\.NET на С#\GuessTheNumber\obj\Debug\netcoreapp3.1\GuessTheNumber.genruntimeconfig.cache

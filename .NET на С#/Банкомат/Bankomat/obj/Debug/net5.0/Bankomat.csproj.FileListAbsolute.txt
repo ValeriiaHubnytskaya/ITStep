@@ -1,0 +1,16 @@
+D:\.NET на С#\Банкомат\Bankomat\bin\Debug\net5.0\Bankomat.exe
+D:\.NET на С#\Банкомат\Bankomat\bin\Debug\net5.0\Bankomat.deps.json
+D:\.NET на С#\Банкомат\Bankomat\bin\Debug\net5.0\Bankomat.runtimeconfig.json
+D:\.NET на С#\Банкомат\Bankomat\bin\Debug\net5.0\Bankomat.runtimeconfig.dev.json
+D:\.NET на С#\Банкомат\Bankomat\bin\Debug\net5.0\Bankomat.dll
+D:\.NET на С#\Банкомат\Bankomat\bin\Debug\net5.0\ref\Bankomat.dll
+D:\.NET на С#\Банкомат\Bankomat\bin\Debug\net5.0\Bankomat.pdb
+D:\.NET на С#\Банкомат\Bankomat\obj\Debug\net5.0\Bankomat.csproj.AssemblyReference.cache
+D:\.NET на С#\Банкомат\Bankomat\obj\Debug\net5.0\Bankomat.GeneratedMSBuildEditorConfig.editorconfig
+D:\.NET на С#\Банкомат\Bankomat\obj\Debug\net5.0\Bankomat.AssemblyInfoInputs.cache
+D:\.NET на С#\Банкомат\Bankomat\obj\Debug\net5.0\Bankomat.AssemblyInfo.cs
+D:\.NET на С#\Банкомат\Bankomat\obj\Debug\net5.0\Bankomat.csproj.CoreCompileInputs.cache
+D:\.NET на С#\Банкомат\Bankomat\obj\Debug\net5.0\Bankomat.dll
+D:\.NET на С#\Банкомат\Bankomat\obj\Debug\net5.0\ref\Bankomat.dll
+D:\.NET на С#\Банкомат\Bankomat\obj\Debug\net5.0\Bankomat.pdb
+D:\.NET на С#\Банкомат\Bankomat\obj\Debug\net5.0\Bankomat.genruntimeconfig.cache
