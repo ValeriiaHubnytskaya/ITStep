@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="mainApp">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angular $Http</title>
+    <style>
+        .rates{
+        border: 2px solid slateblue;
+        /* border-colllapse: collapse;         */
+        }
+         .rates td, .rates th{
+        border: 1px solid slateblue;
+        padding: 1ch 1em;
+        }
+        .rates td:nth-child(odd)
+        {
+            background-color: lightblue;
+        }
+    </style>
+</head>
+<body>
+    <h1>$http Module</h1>
+    <container></container>
+    
+
+    <script src="./angular.min.js"></script>
+    <script>
+        const app = angular.module("mainApp", []);
+            app.directive("container", function($http)
+            {
+                return{
+                    restrict: "E",
+                    template:`<table class="rates">
+                            <tr>
+                                <th ng-click="txtClick()">Назва
+                                    <span ng-if='sortMode=="txtAsc"'>👆</span>
+                                    <span ng-if='sortMode=="txtDesc"'>👇</span>
+                                    </th>
+                                <th ng-click="rateClick()">Ціна
+                                    <span ng-if='sortMode=="rateAsc"'>👆</span>
+                                    <span ng-if='sortMode=="rateDesc"'>👇</span></th></th>
+                                <th ng-click="ccClick()">Валюта
+                                    <span ng-if='sortMode=="ccAsc"'>👆</span>
+                                    <span ng-if='sortMode=="ccDesc"'>👇</span></th>
+                                
+                            </tr>
+                        <tr ng-repeat="rate in rates">
+                            <td>{{rate.txt}}</td>
+                            <td>{{rate.rate}}</td>
+                            <td>{{rate.cc}}</td></td>
+                        </tr>
+                    </table>`,
+                scope: {},
+                controller: function($scope)
+                {
+                    $scope.rates = [];
+                    $scope.sortMode = "none";
+                    $scope.txtClick = ()=>{
+                        if($scope.sortMode == "txtAsc")
+                        {
+                            $scope.rates.sort((x,y)=> -x.txt.localeCompare(y.txt,'uk'));
+                            $scope.sortMode = "txtDesc";
+                        }
+                        else{
+                        $scope.rates.sort((x,y)=> x.txt.localeCompare(y.txt,'uk'));
+                        $scope.sortMode = "txtAsc";
+                        }
+                        
+                    }
+                    $scope.rateClick = ()=> {
+                        if($scope.sortMode == "rateAsc")
+                        {
+                        $scope.rates.sort((x,y)=> x.rate - y.rate);
+                        $scope.sortMode = "rateDesc";
+                        }
+                        else{
+                            $scope.rates.sort((x,y)=> y.rate - x.rate);
+                        $scope.sortMode = "rateAsc";
+                        }
+                    }
+                    $scope.ccClick = ()=>{
+                        
+                        if($scope.sortMode == "ccAsc")
+                        {
+                            $scope.rates.sort((x,y)=> -x.cc.localeCompare(y.cc,'en'));
+                            $scope.sortMode = "ccDesc";
+                        }
+                        else{
+                            $scope.rates.sort((x,y)=> x.cc.localeCompare(y.cc,'en'));
+                        $scope.sortMode = "ccAsc";
+                        }
+                    }
+                }, 
+                    link: (scope) => {                    
+                    $http.get('https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json')
+                    .then(resp => scope.rates = resp.data);
+                    }
+                    
+                };
+            }
+        );
+    </script>
+</body>
+</html>

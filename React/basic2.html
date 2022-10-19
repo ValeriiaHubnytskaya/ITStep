@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REact</title>
+</head>
+<body>
+    <!-- Бабель библиотека  
+    для раьоты с JSX - 
+    расширеным синтаксисом JS
+    Для задействования библиотеки скрипт должен иметь 
+    атрибут type="text.babel"
+    Работа Babel 
+    -->
+    <container></container>
+    <calc></calc>
+
+    <script src="./react.development.js"></script>
+    <script src="./react-dom.development.js"></script>
+    <script src="./babel.min.js"></script>
+
+    <script type="text/babel">
+        const e = React.createElement;
+        class Container extends React.Component{
+            render(){
+                return<>
+                    <div>
+                        <h2>Hello</h2>
+                    </div>
+                    <div>
+                        <h2>World</h2>
+                    </div>
+                </>
+            }
+        }
+        ReactDOM.render(
+           
+           <Container/>,
+            document.querySelector('container')    
+        )
+    </script>
+
+
+<script type="text/babel">
+    class Calc extends React.Component{
+        constructor(props){
+            super(props);
+            this.state = {  //ключевой объект - $scope
+            cnt: 10,
+            min: 0,
+            max:20
+
+            }
+            this.incClick = this.incClick.bind(this);
+            this.inClick = this.inClick.bind(this);
+        }
+
+        incClick(){
+           // this.state.cnt +=1; связывание не наблюдаемое
+            //console.log(this.state.cnt); cnt меняется
+            this.setState(state=>{if(state.cnt < state.max) state.cnt += 1 ; return state; })
+            //this.setState({cnt: this.state.cnt +1});
+        }
+        inClick()
+        {
+            this.setState(state=>{if(state.cnt > state.min) state.cnt -= 1 ; return state; })
+        }
+        render(){
+            return <>
+            <button onClick={this.inClick}> -1</button>
+            <b> {this.state.cnt} </b>
+            <button onClick={this.incClick} > +1</button>
+            </>;
+        }
+    }
+    ReactDOM.render(<Calc max="20"/>, document.querySelector('calc'));
+
+</script>
+</body>
+</html>

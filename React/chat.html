@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat - React</title>
+    <link rel="stylesheet" href="./chat.css"/>
+</head>
+<body>
+        
+    <chat></chat>
+
+    <script src="./react.development.js"></script>
+    <script src="./react-dom.development.js"></script>
+    <script src="./babel.min.js"></script>
+    <script type="text/babel">
+        function Chat(){
+            const[message,setMessage] = React.useState([]);
+            const [disabled, setDisabled] = React.useState(false);
+            const authorRef = React.useRef();
+            const textRef = React.useRef();
+
+            React.useEffect(()=>{
+                // setMessages([
+                //     {"id":"1958","author":"Chatter","text":"Hello all","moment":"2022-10-03 17:04:16"},
+                //     {"id":"1957","author":"ui","text":"hi","moment":"2022-09-26 18:56:54"},
+                //     {"id":"1956","author":"ui","text":"hi","moment":"2022-09-15 23:06:11"}
+                // ]); 
+                setTimeout( loadMessage,1000); 
+                setInterval(loadMessage, 5000); 
+            },[]);
+             
+            const loadMessage = () => {
+                fetch("http://chat.momentfor.fun/")
+                .then(r => r.json())
+                .then(j => {
+                    if( j.status == 1) {
+                        setMessage( j.data );
+                        return <>
+
+                        </>
+                    }
+                    else{
+                        console.log(j.status);
+                    }
+                }).catch(console.log);
+            };
+
+            const sendClick = () => {
+                const author = authorRef.current.value;
+                const text = textRef.current.value;              
+               
+               
+                console.log(author, text);
+                if(author  == "")
+                {
+                    alert("Empty author");
+                }
+
+                if(text == "")
+                {
+                    alert("Empty text");
+                }
+
+   
+                fetch(`http://chat.momentfor.fun?author=${author}&msg=${text}`)
+                .then(r => r.json())
+                .then(j => {
+                    if( j.status == 1) {
+                        setMessage( j.data );
+                        textRef.current.value = " ";
+                        textRef.current.focus();
+                        setDisabled(true);
+                    }
+                    else{
+                        console.log(j.status);
+                    }
+                    
+                    
+                }).catch(console.log);
+            };
+            return <>
+                <h1>Chat by React</h1>
+                {message.length == 0 && <img className="loader" src="./Loading.gif"/>}
+                <input ref={authorRef} defaultValue="Valeriia" disabled ={disabled} /> <br/>
+                <input ref={textRef} defaultValue="Hello"/> <br/>
+                <button type="button" onClick={sendClick} > Send</button>
+                <div className="chat-box">{message.map(m=>
+                    <div className="message">
+                    <div className="moment">{m.moment}</div>
+                    <div className="author">{m.author}</div>
+                    <div className="text">{m.text}</div>
+                    </div> )} 
+                </div>
+            </>;
+        }
+        ReactDOM.render(<Chat/>,
+        document.querySelector("chat"));
+
+    </script>
+
+</body>
+</html>

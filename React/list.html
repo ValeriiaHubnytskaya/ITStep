@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React array</title>
+</head>
+<body>
+    <h1>Работа с множеством на примере списка</h1>
+    <list></list>
+    <list-jsx>
+
+    </list-jsx>
+    
+    
+    <script src="./react.development.js"></script>
+    <script src="./react-dom.development.js"></script>
+    <script src="./babel.min.js"></script>
+<script>
+    const e = React.createElement;
+    class List extends React.Component{
+        constructor(props)
+        {
+            super(props);
+            this.state = {
+                exams: []
+            };
+            this.addClick = this.addClick.bind(this);
+        }
+        componentDidMount(){    //~link 
+            this.setState({
+                exams:[
+                    {title:"ASP", date:'2022-09-21'},
+                    {title:"ADO", date:'2022-09-20'},
+                ]
+            })
+        }
+    addClick(){
+                this.setState( s => 
+                {             
+                    const examTitle = document.getElementById("exam-title");  
+                    const dateExam = document.getElementById("date-time");
+                    if (examTitle.value == "") { 
+                    alert("Erron fail enter name"); 
+                }  
+                    s.exams.push({title:examTitle.value,
+                         date:dateExam.value});
+                    return s; 
+                });
+            }
+    render(){
+            const li = this.state.exams.map( 
+            (exam, i) => 
+            e('li',{key:i}, exam.title  + " " + exam.date)
+            );
+
+            const tbl = this.state.exams.map( 
+            (exam, i) => e('tr',{key:i},            
+             e('td', {}, 1+i),
+             e('td', {}, exam.date),
+             e('td', {}, exam.title))
+            );
+           
+            return e(React.Fragment,{},
+                e('h2',{}, "Exam list"),
+                e('ul', {}, li),
+                e('label', {}, "Введите название экзамена"),
+                e('br',{},null),
+                e('input',{defaultValue: "DB Theory", id:"exam-title"}, null),
+                e('br',{},null),
+                e('label',{},"Выберите дату экзамена"),
+                e('br',{},null),
+                e('input', {type:"date",id:"date-time"}, null),
+                e('br',{},null), 
+                e('table',{border:1}, e('tbody', {}, tbl)),
+                e('button',{type:"button", onClick:this.addClick},'Add')
+
+            );
+        }
+    }
+    ReactDOM.render(
+    e(List,{},null),
+    document.querySelector('list'));
+
+</script>
+
+<script type="text/babel">
+    
+    class ListJsx extends React.Component{
+        constructor(props)
+        {
+            super(props);
+            this.state = {
+                exams: []
+            };
+            this.addClick = this.addClick.bind(this);
+        }
+        componentDidMount(){    //~link 
+            this.setState({
+                exams:[
+                    {title:"ASP", date:'2022-09-21'},
+                    {title:"ADO", date:'2022-09-20'},
+                ]
+            })
+        }
+    addClick(){
+                this.setState( s => 
+                {             
+                    const examTitle = document.getElementById("exam-title");  
+                    const dateExam = document.getElementById("date-time");
+                    if (examTitle.value == "") { 
+                    alert("Erron fail enter name"); 
+                }  
+                    s.exams.push({title:examTitle.value,
+                         date:dateExam.value});
+                    return s; 
+                });
+            }
+    render(){
+            const li = this.state.exams.map((exam, i) => <li>{exam.title}</li>);
+
+            const tbl = this.state.exams.map( 
+            (exam, i) => e('tr',{key:i},            
+             e('td', {}, 1+i),
+             e('td', {}, exam.date),
+             e('td', {}, exam.title))
+            );
+           
+            return <>
+                <h1> "Exam list"</h1>
+                <ul>{this.state.exams.map((exam, i) => 
+                    <li key={i}>{exam.title}</li>)}
+                </ul>               
+
+            </>
+        }
+    }
+    ReactDOM.render(
+    e(ListJsx,{},null),
+    document.querySelector('list-jsx'));
+
+</script>
+</body>
+</html>

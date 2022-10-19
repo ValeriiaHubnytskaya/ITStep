@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React</title>
+</head>
+<body>
+    <h1>Canvas</h1>
+    <graph></graph>
+
+    <script src="./react.development.js"></script>
+    <script src="./react-dom.development.js"></script>
+    <script src="./babel.min.js"></script>
+<script type="text/babel">
+  function Graph( props ) {
+        const figW = Number( props.width  ?? 300 ), 
+              figH = Number( props.height ?? 150 ) ;
+        const [coins, setCoins] = React.useState( [ ] ) ;     
+        const [selectedCoinIndex, setSelectedCoinIndex] = React.useState( -1 ) ;     
+        const canvasRef = React.useRef();
+        const[date, setDate] = React.useState(props.date
+                    ? new Date(props.date)
+                    :new Date()
+                );
+        const [rankHtml, setRankHtml] = React.useState({
+                    __html: ''
+                });
+        const [symbolHtml, setSymbolHtml] = React.useState({
+                    __html: ''
+                });
+        const [nameHtml, setNameHtml] = React.useState({
+                __html: ''
+            });
+        const [supplyHtml, setSupplyHtml] = React.useState({
+                __html: ''
+            });
+        const [priceUsdHtml, setPriceUsdHtml] = React.useState({
+                __html: ''
+            });
+        const [changePercent24HrHtml, setChangePercent24HrHtml] = React.useState({
+                __html: ''
+            });
+        
+        React.useEffect( () => {         
+            clearGraph() ;
+            fetch("https://api.coincap.io/v2/assets")
+            .then( r => r.json() )
+            .then ( j => {
+                let cs = [] ;
+                for( let i = 0; i < 4; ++i ) {
+                    cs.push( j.data[i] ) ;
+                }
+                setCoins( cs ) ;
+                setSelectedCoinIndex( 0 ) ;
+            } ) ;           
+        }, [] ) ;
+
+        React.useEffect( () => {
+            if( selectedCoinIndex == -1 ) return ;
+            const assetId = coins[selectedCoinIndex].id ;
+            fetch(`https://api.coincap.io/v2/assets/${assetId}/history?interval=d1`)
+            .then( r => r.json() )
+            .then( drawGraph )
+           
+           
+        }, [selectedCoinIndex] ) ;
+        
+        const loadData= () => {
+            fetch("https://api.coincap.io/v2/assets")
+            .then( r => r.json() )
+            .then ( j => {
+                let day = date.getDate();
+                setRankHtml({                           
+                     __html: "<b>Rank:</b>" + j.data[day].rank
+                });
+               setSymbolHtml({
+                    __html: "<b>Symbol:</b>" + j.data[day].symbol
+                });
+                setNameHtml({
+                    __html: "<b>Name:</b>" + j.data[day].name
+                });
+                setSupplyHtml({
+                    __html: "<b>Supply:</b>" + j.data[day].supply
+                });
+                setPriceUsdHtml({
+                    __html: "<b>priceUsd:</b>" + j.data[day].priceUsd
+                });
+                setChangePercent24HrHtml({
+                    __html: "<b>changePercent24Hr:</b> " + j.data[day].changePercent24Hr
+                });
+            });
+        
+        };
+        React.useEffect( () => {
+                    loadData();
+                },[]);
+        
+        const clearGraph = () => {
+            const fig = canvasRef.current.getContext('2d') ;
+            fig.fillStyle = "white" ;
+            fig.clearRect(0,0,figW,figH);
+            // border
+            fig.beginPath() ;
+            fig.moveTo(0,0);
+            fig.lineTo(figW,0);
+            fig.lineTo(figW,figH);
+            fig.lineTo(0,figH);
+            fig.lineTo(0,0);
+            fig.strokeStyle = "#13c2c2";
+            fig.lineWidth = 3;
+            fig.stroke();
+        } ;
+
+        const drawGraph = React.useCallback( j => {
+            const rates = j.data ;
+            // ищем максимум и минимум по Х и Y
+            var maxX = rates[0].time, 
+                minX = maxX, 
+                maxY = Number(rates[0].priceUsd), 
+                minY = maxY;
+            for( let rate of rates ) {
+                if( rate.priceUsd > maxY ) maxY = Number(rate.priceUsd) ;
+                if( rate.priceUsd < minY ) minY = Number(rate.priceUsd) ;
+                if( rate.time > maxX ) maxX = rate.time ;
+                if( rate.time < minX ) minX = rate.time ;
+            }
+            // console.log(minX, maxX, minY, maxY);
+
+            clearGraph() ;
+            // рисуем график с учетом масштаба на мин/макс значения
+            const fig = canvasRef.current.getContext('2d') ;
+            fig.strokeStyle = `rgb(129, 148, 148)` ;
+            const kY = 1.15 ;
+            fig.beginPath() ;
+            fig.moveTo( 0, figH * ( 1 - ( rates[0].priceUsd - minY ) / ( maxY - minY ) / kY ) / kY ) ;
+            fig.lineWidth = 1 ;
+            for( let rate of rates ) {
+                fig.lineTo( 
+                    figW * ( rate.time - minX ) / ( maxX - minX ),
+                    figH * ( 1 - ( rate.priceUsd - minY ) / ( maxY - minY ) / kY ) / kY ) ;
+            }
+            // fig.endPath() ;
+            fig.stroke();
+        } ) ;
+
+        const onCoinChange = React.useCallback( e => {
+            const index = e.target.selectedIndex ;
+            setSelectedCoinIndex( index ) ;
+        } ) ;
+
+        return <>
+            <h2>Crypto-Graph</h2>
+            <select onChange={onCoinChange}>{ coins.map( coin => 
+                <option>{coin.id}</option> ) }
+            </select>
+            <br/>
+            <canvas width={figW} height={figH} ref={canvasRef}></canvas>
+            <div dangerouslySetInnerHTML={rankHtml}></div>
+            <div dangerouslySetInnerHTML={symbolHtml}></div>
+            <div dangerouslySetInnerHTML={nameHtml}></div>
+            <div dangerouslySetInnerHTML={supplyHtml}></div>
+            <div dangerouslySetInnerHTML={priceUsdHtml}></div>
+            <div dangerouslySetInnerHTML={changePercent24HrHtml}></div>
+        </>
+    }
+    ReactDOM.render( 
+        <Graph width="400" height="200"  />, 
+        document.querySelector("graph") ) ;
+
+</script>
+
+</body>
+</html>

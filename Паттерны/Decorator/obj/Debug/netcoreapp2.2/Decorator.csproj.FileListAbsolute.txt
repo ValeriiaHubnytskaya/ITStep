@@ -1,0 +1,13 @@
+D:\Паттерны\Decorator\bin\Debug\netcoreapp2.2\Decorator.deps.json
+D:\Паттерны\Decorator\bin\Debug\netcoreapp2.2\Decorator.runtimeconfig.json
+D:\Паттерны\Decorator\bin\Debug\netcoreapp2.2\Decorator.runtimeconfig.dev.json
+D:\Паттерны\Decorator\bin\Debug\netcoreapp2.2\Decorator.dll
+D:\Паттерны\Decorator\bin\Debug\netcoreapp2.2\Decorator.pdb
+D:\Паттерны\Decorator\obj\Debug\netcoreapp2.2\Decorator.csproj.CoreCompileInputs.cache
+D:\Паттерны\Decorator\obj\Debug\netcoreapp2.2\Decorator.AssemblyInfoInputs.cache
+D:\Паттерны\Decorator\obj\Debug\netcoreapp2.2\Decorator.AssemblyInfo.cs
+D:\Паттерны\Decorator\obj\Debug\netcoreapp2.2\Decorator.dll
+D:\Паттерны\Decorator\obj\Debug\netcoreapp2.2\Decorator.pdb
+D:\Паттерны\Decorator\obj\Debug\netcoreapp2.2\Decorator.csproj.AssemblyReference.cache
+D:\Паттерны\Decorator\obj\Debug\netcoreapp2.2\Decorator.GeneratedMSBuildEditorConfig.editorconfig
+D:\Паттерны\Decorator\obj\Debug\netcoreapp2.2\Decorator.genruntimeconfig.cache

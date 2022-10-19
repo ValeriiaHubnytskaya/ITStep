@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="mainApp" ng-controller="mainController">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angular</title>
+</head>
+<body>
+    <h1>Angular Контролеры Часть 2</h1>
+  
+    <p ng-repeat="a in arr">
+        <span ng-if="a.val<4">{{a.txt}}</span>
+        <span ng-switch on="a.val">
+            <b ng-switch-when="1">{{a.txt}}</b>
+            <i ng-switch-when="2">{{a.txt}}</i>
+            <u ng-switch-when="3">{{a.txt}}</u>
+            <s ng-switch-default>{{a.txt}}</s>
+        </span>
+    </p>
+    <button ng-click="addClick()">Add</button>
+    <br/>
+    <br/>
+    <button onclick="btnClick()" ng-click="btnClick()">Press</button>
+
+    <script src="./angular.min.js"></script>
+    <script>
+        const mainApp = angular.module("mainApp",[]); 
+        mainApp.controller("mainController",function($scope) 
+         {        
+            $scope.arr = [{txt:"Hello", val:1},
+            {txt:"all",val:2},
+            {txt:"of",val:3},
+            {txt:"you",val:4},
+        ];  
+            $scope.addClick=function()
+            {
+                let obj = {txt: "Once more", val: Math.round(Math.random() * 5)};
+                console.log(obj);
+                $scope.arr.push(obj);
+            } 
+
+            $scope.btnClick = function()
+            {
+                console.log("From Scope");
+            }
+        });    
+
+      
+    </script>
+</body>
+</html>

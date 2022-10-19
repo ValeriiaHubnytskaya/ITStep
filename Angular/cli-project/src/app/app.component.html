@@ -1,0 +1,46 @@
+<h1>{{hello}}</h1>
+<app-reform></app-reform>
+
+<br/>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Bitcoin.svg/128px-Bitcoin.svg.png"/>
+<br/>
+{{btcRate}} 
+<select (change)="symChange($event)" >
+  <option 
+    *ngFor="let rate of btcRates" 
+    [value]="rate.rate">
+        {{rate.symbol}}
+  </option>
+</select>
+<br/>
+Введите название валюты: <input (blur)="curBlur($event)"/>
+<br/>
+<br/>
+<table>
+  <tr>
+    <th (click)="sortr030()">r030</th>
+    <th (click)="sortTxt()">txt</th>
+    <th (click)="sortRate()">rate</th>
+    <th (click)="sortCc()">cc</th>
+    <th (click)="sortdate()">exchangedate</th>
+  </tr>
+
+  <tr *ngFor="let rate of rates" (click)="trClick3(rate)">
+    <td >{{rate.r030}}</td>
+    <td >{{rate.txt}}</td>
+    <td>{{rate.rate}}</td>
+    <td>{{rate.cc}}</td>
+    <td>{{rate.exchangedate}}</td>
+  </tr>
+
+</table>
+<br/>
+<button (click)="loadClick()">Load rates</button>
+<html xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"><head>
+<!--[if gte mso 9]><xml>
+<mso:CustomDocumentProperties>
+<mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_SharedWithUsers msdt:dt="string">&#1059;&#1095;&#1072;&#1089;&#1085;&#1080;&#1082;&#1080; &#1050;&#1053;-&#1055;-191</mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_SharedWithUsers>
+<mso:SharedWithUsers msdt:dt="string">81;#&#1059;&#1095;&#1072;&#1089;&#1085;&#1080;&#1082;&#1080; &#1050;&#1053;-&#1055;-191</mso:SharedWithUsers>
+</mso:CustomDocumentProperties>
+</xml><![endif]-->
+</head>

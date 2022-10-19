@@ -1,0 +1,11 @@
+D:\Паттерны\Fabric\bin\Debug\netcoreapp2.2\Fabric.deps.json
+D:\Паттерны\Fabric\bin\Debug\netcoreapp2.2\Fabric.runtimeconfig.json
+D:\Паттерны\Fabric\bin\Debug\netcoreapp2.2\Fabric.runtimeconfig.dev.json
+D:\Паттерны\Fabric\bin\Debug\netcoreapp2.2\Fabric.dll
+D:\Паттерны\Fabric\bin\Debug\netcoreapp2.2\Fabric.pdb
+D:\Паттерны\Fabric\obj\Debug\netcoreapp2.2\Fabric.csprojAssemblyReference.cache
+D:\Паттерны\Fabric\obj\Debug\netcoreapp2.2\Fabric.csproj.CoreCompileInputs.cache
+D:\Паттерны\Fabric\obj\Debug\netcoreapp2.2\Fabric.AssemblyInfoInputs.cache
+D:\Паттерны\Fabric\obj\Debug\netcoreapp2.2\Fabric.AssemblyInfo.cs
+D:\Паттерны\Fabric\obj\Debug\netcoreapp2.2\Fabric.dll
+D:\Паттерны\Fabric\obj\Debug\netcoreapp2.2\Fabric.pdb

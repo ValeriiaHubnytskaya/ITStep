@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React</title>
+    <style>
+        body{
+            background-image: url("https://media.istockphoto.com/photos/forest-wooden-table-background-summer-sunny-meadow-with-green-grass-picture-id1353553203?b=1&k=20&m=1353553203&s=170667a&w=0&h=QTyTGI9tWQluIlkmwW0s7Q4z7R_IT8egpzzHjW3cSas=");
+            background-size:cover;       
+            margin: 1%;
+        }
+        h1{
+        text-align: center;
+        color: #7d1130;
+        }
+        a{
+            margin: 2%;
+            padding: 0.5%;
+            color: #53071a;
+            font-size: 22px;
+            background:rgba(252, 250, 250,0.3);
+            border-radius: 15px;           
+        }
+        .box{
+            margin: 2%;
+            padding: 2%;
+            background:rgba(252, 250, 250,0.3);
+            border-radius: 15px;           
+            border: 1px solid darkgrey;
+            width: 200px;
+            height: auto;
+        }
+        .box1{
+            text-align: center;
+            /* justify-content: center; */
+            font-size: 30px;
+            margin: 13%;
+        }
+    </style>
+</head>
+<body>
+    <h1> Функциональные компоненты</h1>
+    <container></container>
+    <script src="./react.development.js"></script>
+     <script src="./react-dom.development.js"></script>
+     <script src="./babel.min.js"></script>
+     <script type="text/babel">
+        function Container(props){
+            //Маршрутизация (routing) в SPA обычно основывается на изменении
+            //hash - части УРЛ, находящейся после символа в # в адреса
+           const[hash, setHash]= React.useState(window.location.hash)
+            
+           const hashChange = React.useCallback(()=>{
+                console.log(window.location.hash);
+                setHash(window.location.hash);
+             });    
+        
+           React.useEffect(()=>{
+                window.addEventListener("hashchange", hashChange);
+                return ()=> window.removeEventListener("hashchange", hashChange);
+            },
+                []
+           );
+           
+            return <>
+            <a href='#5'> Container5 </a>
+            <a href='#4'> Container4 </a>
+            <a href='#3'> Container3 </a>
+            <a href='#2'> Container2 </a>
+            <a href='#1'> Container1 </a>
+            <br/>
+            {hash == '#5' && <Container5 x="50" />}
+            {hash == '#4' && <Container4 x="40"/>}
+            {hash == '#3'&& <Container3 x="30"/>}
+            {hash == '#2'&& <Container2 x="20"/>}
+            {hash == '#1'&& <Container1 x="10"/>}
+            </>
+        }
+
+        function Container5 (){
+            return<>
+                <div className="box1">
+                    <b>Error 404</b>
+                    <br/>
+                    <b>Page not found</b>
+                </div>
+            </>
+        }
+        function Container4(props){
+            let [x, setX] = React.useState(props.x);
+            function componentDidMount () {
+                console.log("Mounted");
+            }
+            React.useEffect(
+            ()=>{
+                console.log("Mounted Effect");
+                return () => {
+                console.log("UnMounted");
+                }
+            },
+                []
+            );
+
+            const bClick = React.useCallback(
+            () => {
+                setX(+x + 1);
+            });
+           
+            React.useEffect(
+            () => {
+                console.log("X Effect",x);
+                return()=> {
+                    console.log("X End",x);
+                }
+            },
+                [x]
+            );
+
+            return <>
+                 <div className="box">
+                 <b onClick={bClick}>Fun container{x}</b>
+                 </div>
+            </>
+        }
+        function Container3(props){
+            const [x, setX] = React.useState(props.x);
+         
+            
+            const incClick = React.useCallback(()=> {
+                setX(+x + 1);
+            });
+
+            const decClick = React.useCallback(()=> {
+                setX(x - 1);
+            }
+            );
+
+            return <>
+            <div className="box">
+            <button  onClick={incClick}>++</button>
+            <b>{x}</b> 
+            <button onClick={decClick}>--</button>
+            </div>
+            </>
+        }
+
+        function Container2 (props){
+            let [x, setX] = React.useState(0);
+
+            const bClick = React.useCallback(
+            () => {
+                setX(x+1);
+            });
+            // const bClick = function(){
+            //     setX(x+1);
+            // }
+
+            return <>
+            <div className="box">
+            <b onClick={bClick}>
+            {x} Fun container {props.x} </b>
+            </div>
+            </>
+        }
+        function Container1(props){     //изменения переменных не
+            var x=10;                   //приводят к перерисовке, т.к.
+            const bClick = function(){  //не являются состоянием
+                console.log("click");
+                x+=1;
+            }
+            return <>
+            <div className="box">
+            <b onClick={bClick}>{x} Fun container {props.x}</b>
+            </div>
+            </>
+        }
+        ReactDOM.render(
+            <Container x="10"/>,
+            document.querySelector("container")
+        )
+
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+﻿<Window x:Class="WpfApp1.Tanks"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="Tanks" Height="450" Width="800"
+        PreviewKeyDown="Window_KeyDown"
+        PreviewKeyUp="Window_PreviewKeyUp">
+
+    <Canvas 
+        x:Name="Field"
+        Width="800"
+        Height="450"
+        Background="DarkOliveGreen"
+        >
+        <Image 
+            x:Name="TankImage"
+            Source="BS.png"
+            Width="100"
+            Height="100"
+            Canvas.Left="330"
+            Canvas.Top="165"
+            />
+        <Ellipse
+            x:Name="Enemy"
+            Width="100"
+            Height="100"
+            Canvas.Left="100"
+            Canvas.Top="100"
+            Fill="Crimson"
+            />
+        <Label 
+            x:Name="HitCounterLabel"
+            Canvas.Left="690" 
+            Canvas.Top="10"
+            Width="100"
+            Height="39"
+            FontSize="20"
+            Content=""
+            />
+
+    </Canvas>
+
+</Window>

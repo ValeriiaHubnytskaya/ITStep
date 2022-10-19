@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angular basics</title>
+    
+</head>
+<body>
+    <h1>Angular JS. Основы</h1>
+    <h2>Подключение</h2>
+    <p>
+        1.скачать скрипт с сайта https://angularjs.org/
+        <br>
+        2. указать ссылку на скрипт "https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"
+    </p>
+    <p>
+        В теле документа поместить тег "скрипт" и в разметке указать область действия приложения 
+        Angular (ng-app).
+        Чаще всего это максимальная область: &lt;html ng-app>
+    </p>
+    <p>
+        Внутри области действия приложения будут обрабатываться выражения
+        .Выражения заключаются { { 2+3 } } {{ 2+3 }}
+    </p>
+    <h2>Использование</h2>
+    <p>
+        Идея Angular в MVC со связыванием (MVVM).
+        Модель - источник данных, может изменяться как автоматически,
+        так и программно. Любые изменения
+        модели сразу отображаются на странице
+    </p>
+    <p>
+        <input ng-model="username"/>
+        <br/>
+        <input type="radio" ng-model="rb" value="Yes"/>Yes
+        <br/>
+        <input type="radio" ng-model="rb" value="No"/>No
+        <br/>
+        <input type="range" ng-model="range"/>
+        <br/>
+        <select ng-model="select">
+            <option value ="1">1</option>
+            <option value ="2">2</option>
+            <option value ="3">3</option>
+            <option value ="4">4</option>
+        </select>
+    
+    </p>
+    <hr/>
+    <p>
+        Text: <b>{{username}}</b>
+        <br/>
+        RB: <b>{{rb}}</b>
+        <br/>
+        Range: <b style="color:rgb({{2*range}},100,100)">{{range}}</b>
+        <br/>
+        Select: <b>{{select}}</b>
+    </p>
+    <script src="./angular.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<h2> Реактивные формы</h2>
+
+<form [formGroup]="registerForm" style="margin: 1%; padding: 1%; display:flex; flex-direction:column; width:30%"> <!--Привязка формы к группе -->
+    <label for="form-login">Логин</label>
+    <input id="form-login" formControlName="login"/>
+    <b *ngIf="registerForm.controls['login'].touched &&
+    registerForm.controls['login'].invalid">Логин некорректный</b>
+    <br/>
+
+    <label for="form-name">Имя</label>
+    <input id="form-name" formControlName="realName"/>
+    <b *ngIf="registerForm.controls['realName'].touched &&
+    registerForm.controls['realName'].invalid">Некорректное имя</b>
+    <br/>
+
+    <label>Email <br/><input id="form-email" type="email" formControlName = "email"></label>
+    <b *ngIf="registerForm.controls['email'].touched &&
+    registerForm.controls['email'].invalid">Некорpектный email</b>
+    <br/>
+    <label for="form-birthdate">Дата рождения</label>
+    <input id="form-birthdate" type="date" formControlName="birthdate">
+    <b *ngIf="registerForm.controls['birthdate'].touched &&
+    registerForm.controls['birthdate'].invalid">Выберите дату</b>
+    <br/>
+
+    <label><input type="radio" name="gender" value="male" formControlName="gender">M</label>
+    <label><input type="radio" name="gender" value="female" formControlName="gender">Ж</label>
+    <b *ngIf="registerForm.controls['gender'].touched &&
+    registerForm.controls['gender'].invalid">Выберите Ваш пол</b>
+    <br/>
+    
+   
+   <label>Выберите район города </label>
+   <select >
+    <option>Приморский</option>
+    <option>Суворовский</option>
+    <option>Малиновский</option>
+    <option>Киевский</option>
+    
+   </select>
+    <br/>
+    <label>Загрузить фото
+      <input type="file" name="image" formControlName="gender">  
+    </label>
+
+ <label><input type="checkbox" formControlName="agree"/>Согласен с условиями</label>
+    <br>
+
+    <input type="button" value="Регистрация" (click)="regClick()" [disabled]="registerForm.invalid"/>
+</form>
+<hr/>
+<br/>

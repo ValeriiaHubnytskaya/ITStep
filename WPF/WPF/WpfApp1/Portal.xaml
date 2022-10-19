@@ -1,0 +1,169 @@
+﻿<Window x:Class="WpfApp1.Portal"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="Portal" Height="450" Width="800" Background="Bisque">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/> 
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Button 
+            x:Name="Serialization"
+            Content="Сериализация"
+            FontSize="23"
+            Click="Serialization_Click"
+            Background="LightSkyBlue"
+            FontFamily="Tw Cen MT Condensed Extra Bold"
+            />
+
+        <Button 
+            Grid.Column="0" Grid.Row="1"
+            x:Name="FracCalc"
+            Content="Калькулятор дробей"
+            FontSize="21"
+            Click="FracCalc_Click"
+            Background="LightBlue"
+            FontFamily="Tw Cen MT Condensed Extra Bold"
+            />
+
+        <Button 
+            Grid.Column="0" Grid.Row="2"
+            x:Name="Strings"
+            FontSize="25"
+            Click="Strings_Click"
+            Background="AliceBlue">
+
+            <StackPanel Orientation="Horizontal">
+                <Image Source="SnakeAngel.png"
+                       Stretch="Uniform"
+                       Width="100"
+                       />
+                <WrapPanel Orientation="Vertical">
+                    <Label FontFamily="Tw Cen MT Condensed Extra Bold">Работа со</Label>
+                    <Label FontFamily="Tw Cen MT Condensed Extra Bold">строками</Label>
+                </WrapPanel>
+            </StackPanel>
+        </Button>
+
+        <Button 
+            Grid.Column="1" Grid.Row="0"
+            x:Name="Tabs"
+            Content="Tab-control"
+            FontSize="26"
+            Click="Tabs_Click"
+            Background="HotPink"
+            FontFamily="Tw Cen MT Condensed Extra Bold"/>
+
+        <Button 
+            Grid.Column="1" Grid.Row="1"
+            x:Name="Tanks"
+            FontSize="25"
+            Click="Tanks_Click"
+            Background="Aquamarine">
+
+            <StackPanel Orientation="Horizontal">
+                <Image Source="BS.png"
+                       Stretch="Uniform"
+                       Width="100"
+                       />
+                <WrapPanel Orientation="Vertical">
+                    <Label FontFamily="Tw Cen MT Condensed Extra Bold">События:</Label>
+                    <Label FontFamily="Tw Cen MT Condensed Extra Bold"> Танки</Label>
+                </WrapPanel>
+            </StackPanel>
+        </Button>   
+        
+        <Button 
+            Grid.Column="1" Grid.Row="2"
+            x:Name="Minesweeper"
+            FontSize="25"
+            Click="Minesweeper_Click"
+            Background="CadetBlue">
+
+            <StackPanel Orientation="Horizontal">
+                <Image Source="mine.png"
+                       Stretch="Uniform"
+                       Width="100"
+                       />
+                <WrapPanel Orientation="Vertical">
+                    <Label FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="21">Связывание:</Label>
+                    <Label FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="21">Сапер</Label>
+                </WrapPanel>
+            </StackPanel>
+        </Button> 
+        
+        <Button 
+            Grid.Column="2" Grid.Row="0"
+            x:Name="Arkanoid"
+            FontSize="25"
+            Click="Arkanoid_Button_Click"
+            Background="MediumOrchid">
+
+            <StackPanel Orientation="Horizontal">
+                <Image Source="photo.jpg"
+                       Stretch="Uniform"
+                       Width="100"
+                       />
+                <WrapPanel Orientation="Vertical">
+                    <Label FontFamily="Tw Cen MT Condensed Extra Bold">Динамика:</Label>
+                    <Label FontFamily="Tw Cen MT Condensed Extra Bold">Арканоид</Label>
+                </WrapPanel>
+            </StackPanel>
+        </Button>
+
+        <Button 
+            Grid.Column="2" Grid.Row="1"
+            x:Name="Styles"
+            Content="Стили и триггеры"
+            FontSize="25"
+            Click="Styles_Click"
+            Background="DarkSeaGreen" FontFamily="Tw Cen MT Condensed Extra Bold"/>
+        <Button 
+            Grid.Column="2" Grid.Row="2"
+            x:Name="Triger"
+            Content="Триггеры"
+            FontSize="25"
+            Click="Triger_Click"
+            Background="PaleTurquoise"
+            FontFamily="Tw Cen MT Condensed Extra Bold"/>
+        <Button 
+            Grid.Column="0 "
+            Grid.Row="3"
+            x:Name="DnD"
+            Content="Drag n'Drop"
+            FontSize="25"
+            Click="Dnd_Click"
+            Background="PaleTurquoise"
+            FontFamily="Tw Cen MT Condensed Extra Bold" />
+        <Button 
+            Grid.Column="1"
+            Grid.Row="3"
+            x:Name="Snake"
+            Content="Snake"
+            FontSize="25"
+            Click="Snake_Click"
+            Background="PaleTurquoise"
+            FontFamily="Tw Cen MT Condensed Extra Bold" /> 
+        <Button 
+            Grid.Column="2"
+            Grid.Row="3"
+            x:Name="DT"
+            Content="Date and Time"
+            FontSize="25"
+            Click="DT_Click"
+            Background="OliveDrab"
+            FontFamily="Tw Cen MT Condensed Extra Bold" />
+    </Grid>
+</Window>

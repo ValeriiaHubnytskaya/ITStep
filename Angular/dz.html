@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+   
+</head>
+<body>
+                        <!-- Д.З. Сделать генератор визитной карточки
+                    В отдельных полях вводятся ФИО, тлф, почта (текст)
+                    * радиокнопка Mr | Mrs (влияет на цвет рамки)
+                    * селектор "город" (филиал)
+                    В отдельном блоке формируется визитка
+                    блок с рамкой и введенными данными
+                    Использовать модели Angular (формирование "на лету") -->
+
+    <div class="boxDz" ng-app="mainApp">
+        <div ng-controller="mainController">                    
+            <input ng-model="Firstname"/>
+            <b>FirstName:</b>  {{Firstname}}      
+            <br/>       
+
+            <input ng-model="Lastname"/> 
+            <b>LastName:</b> {{Lastname}}      
+            <br/>
+
+            <input type="radio" ng-model="rb" value="Mr"/>Mr        
+            <input type="radio" ng-model="rb" value="Mrs"/>Mrs
+            <br/> 
+
+            <input type="tel" ng-model="number"/>
+            <b>Number:</b> {{number}} <br/>             
+
+            <input  type="email" ng-model="email"/>
+            <b>Email:</b> {{email}}
+            <br/>
+
+            <select ng-model="select">
+                <option value ="Kiev">Kiev</option>
+                <option value ="Odessa">Odessa</option>
+                <option value ="Lviv">Lviv</option>
+                <option value ="Ochakiv">Ochakiv</option>
+            </select>
+        </div>
+    </div>
+    <script src="./angular.min.js"></script>
+    <script>
+        const mainApp =             //модуль
+         angular                    //создаем модуль для 
+         .module("mainApp",[]);     //элемента ng-app="mainApp"
+    
+         mainApp.controller(        //создаем контроллер
+            "mainController",           //имя контроллера (ng-controller)
+            function($scope) {           //функция инициализация
+                $scope.Firstname =" ";   //$scope - лексикографическое окружение                    
+                $scope.Lastname = " ";
+                $scope.number= " ";
+                $scope.email = " "; 
+            }
+        )    
+    </script>
+</body>
+</html>

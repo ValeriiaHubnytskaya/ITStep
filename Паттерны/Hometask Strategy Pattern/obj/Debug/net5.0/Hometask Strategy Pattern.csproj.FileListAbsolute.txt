@@ -1,0 +1,16 @@
+D:\Паттерны\Hometask Strategy Pattern\bin\Debug\net5.0\Hometask Strategy Pattern.exe
+D:\Паттерны\Hometask Strategy Pattern\bin\Debug\net5.0\Hometask Strategy Pattern.deps.json
+D:\Паттерны\Hometask Strategy Pattern\bin\Debug\net5.0\Hometask Strategy Pattern.runtimeconfig.json
+D:\Паттерны\Hometask Strategy Pattern\bin\Debug\net5.0\Hometask Strategy Pattern.runtimeconfig.dev.json
+D:\Паттерны\Hometask Strategy Pattern\bin\Debug\net5.0\Hometask Strategy Pattern.dll
+D:\Паттерны\Hometask Strategy Pattern\bin\Debug\net5.0\ref\Hometask Strategy Pattern.dll
+D:\Паттерны\Hometask Strategy Pattern\bin\Debug\net5.0\Hometask Strategy Pattern.pdb
+D:\Паттерны\Hometask Strategy Pattern\obj\Debug\net5.0\Hometask Strategy Pattern.csproj.AssemblyReference.cache
+D:\Паттерны\Hometask Strategy Pattern\obj\Debug\net5.0\Hometask Strategy Pattern.GeneratedMSBuildEditorConfig.editorconfig
+D:\Паттерны\Hometask Strategy Pattern\obj\Debug\net5.0\Hometask Strategy Pattern.AssemblyInfoInputs.cache
+D:\Паттерны\Hometask Strategy Pattern\obj\Debug\net5.0\Hometask Strategy Pattern.AssemblyInfo.cs
+D:\Паттерны\Hometask Strategy Pattern\obj\Debug\net5.0\Hometask Strategy Pattern.csproj.CoreCompileInputs.cache
+D:\Паттерны\Hometask Strategy Pattern\obj\Debug\net5.0\Hometask Strategy Pattern.dll
+D:\Паттерны\Hometask Strategy Pattern\obj\Debug\net5.0\ref\Hometask Strategy Pattern.dll
+D:\Паттерны\Hometask Strategy Pattern\obj\Debug\net5.0\Hometask Strategy Pattern.pdb
+D:\Паттерны\Hometask Strategy Pattern\obj\Debug\net5.0\Hometask Strategy Pattern.genruntimeconfig.cache

@@ -1,0 +1,310 @@
+﻿<Window x:Class="WpfApp1.Styles"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="Styles" Height="450" Width="800">
+    <Window.Resources>
+        <!-- Стили - наборы установок, применяемых ко всем элементам
+        определенного типа TargetType-->
+        <Style TargetType="Label">
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver"
+                         Value="True">
+                    <Setter
+                        Property="FontSize"
+                        Value=" 50"/>
+                    <Setter
+                        Property="Control.Background"
+                        Value="MistyRose"/>
+                </Trigger>
+                <DataTrigger Binding="{Binding ElementName=check1, Path=IsChecked}"
+                             Value="True">
+                    <Setter
+                        Property="Foreground" Value="Black"/>
+                    <Setter 
+                 Property="FontFamily"
+                Value="Edwardian Script ITC" />           
+                    <Setter
+                Property="Control.FontSize"
+                Value="35"/>
+                </DataTrigger>
+                
+            </Style.Triggers>
+            <Style.Setters>
+                <!-- Вместо FontSize = 30 , используются Setter-->
+                <Setter 
+                    Property="FontSize"
+                    Value=" 30"
+                    ></Setter>
+                <!-- Setter - может быть несколько-->
+                <Setter
+                    Property="Foreground"
+                    Value="SaddleBrown">
+                </Setter>
+                <Setter
+                    Property="FontFamily"
+                    Value="Comic Sans MS">
+                </Setter>
+            </Style.Setters>
+        </Style>
+
+
+        <Style TargetType="{x:Type Button}">
+            <Style.Setters>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border
+                                BorderThickness="2"
+                                BorderBrush="DarkGray"
+                                CornerRadius="5"
+                                Background="{TemplateBinding Background}">
+                                <ContentPresenter
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Name="content"/>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver"
+                                         Value="True">
+                                    <Setter
+                                        Property="Background" >
+                                        <Setter.Value>
+                                            <LinearGradientBrush
+                        StartPoint="1 1"
+                        EndPoint="0 0">
+                                                <GradientStop
+                            Offset="0.2"
+                            Color="LimeGreen"/>
+                                                <GradientStop
+                        Offset="0.5"
+                        Color="Aquamarine"/>
+                                                <GradientStop
+                        Offset="1"
+                        Color="Aqua"/>
+                                            </LinearGradientBrush>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Trigger>
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter  Property="Background" Value="Green"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+        <Setter Property="FontSize">
+            <!--  Для сложных  значений выносится в отдельную секцию-->
+            <Setter.Value>20</Setter.Value>
+        </Setter>
+        <Setter Property="Background">
+            <Setter.Value>
+                <LinearGradientBrush
+                        StartPoint="0 0"
+                        EndPoint="1 1">
+                    <GradientStop
+                            Offset="0.2"
+                            Color="LimeGreen"/>
+                    <GradientStop
+                        Offset="0.5"
+                        Color="Aquamarine"/>
+                    <GradientStop
+                        Offset="1"
+                        Color="Aqua"/>
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+    </Style.Setters>
+            <Style.Triggers>
+                <EventTrigger RoutedEvent="Click">
+                    <EventTrigger.Actions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation
+                                    Storyboard.TargetProperty="Height"
+                                    Duration="0:0:0:5"
+                                     From="50"
+                                    To="100"/>
+                                <DoubleAnimation
+                                    Storyboard.TargetProperty="Width"
+                                    Duration="0:0:0:5"
+                                     From="50"
+                                    To="200"/>
+                                <DoubleAnimation
+                                    Storyboard.TargetProperty="Opacity"
+                                    Duration="0:0:0:5"
+                                    From="0.5"
+                                    To="1"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger.Actions>
+                </EventTrigger>
+            </Style.Triggers>
+ </Style>
+        
+        <!-- - Именнованые ресурсы -->
+        <Style x:Key="CenteredContent">
+            <Style.Triggers>
+                <Trigger
+                     Property="Control.IsMouseOver"
+                         Value="true">
+                    <Setter
+                        Property="ItemsControl.FontSize"
+                        Value="50"/>
+                    <Setter
+                        Property="Control.Background"
+                        Value="MistyRose"/>
+                </Trigger>
+            </Style.Triggers>
+            <Style.Setters>
+                <Setter
+                Property="Control.VerticalContentAlignment"
+                Value="Center"/>
+                <Setter
+                Property="Control.HorizontalContentAlignment"
+                Value="Center"/>
+                <Setter
+                Property="Control.FontSize"
+                Value="32"/>
+                <Setter
+                Property="Control.Foreground"
+                Value="SaddleBrown"/>
+                <Setter
+                Property="Control.FontFamily"
+                 Value="Comic Sans MS"/>
+            </Style.Setters>
+        </Style>
+
+        <Style x:Key="BigLabel">
+            <Setter 
+                Property="Control.FontSize"
+                Value=" 30"
+                ></Setter>
+        </Style>
+        <!--  Ресурсы можно наследовать
+        (базировать на другтх ресурсах)-->
+
+        <Style x:Key="BigCentered"
+               BasedOn="{StaticResource BigLabel}">
+            <Style.Triggers>
+                <Trigger
+                    Property="Control.IsMouseOver"
+                         Value="true">
+                    <Setter
+                        Property="ItemsControl.FontSize"
+                        Value="50"/>
+                    <Setter
+                        Property="Control.Background"
+                        Value="MistyRose"/>
+                </Trigger>
+            </Style.Triggers>
+            <Style.Setters>
+                <Setter
+                Property="Control.VerticalContentAlignment"
+                Value="Center">
+                </Setter>
+                <Setter
+                Property="Control.HorizontalContentAlignment"
+                Value="Center">
+                </Setter>
+                <Setter
+                Property="Control.Foreground"
+                Value="SaddleBrown"></Setter>
+                <Setter
+                Property="Control.FontFamily"
+                 Value="Comic Sans MS"/>
+            </Style.Setters>
+        </Style>
+
+        <Style
+            x:Key="MyStyle"
+            TargetType="Button">
+            <Setter
+                Property="Control.FontSize"
+                Value="35"/>
+            <Setter
+                Property = "Control.HorizontalContentAlignment"
+                Value="Center"/>
+            <Setter
+                Property = "Control.VerticalContentAlignment"
+                Value="Center"/>
+            <Setter
+                Property="Foreground">
+                <Setter.Value>
+                    <LinearGradientBrush
+                        StartPoint="0 1"
+                        EndPoint="0 0">
+                        <GradientStop
+                            Offset="0.5"
+                            Color="Black"/>
+                        <GradientStop
+                            Offset="0.3"
+                            Color="Brown"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <Setter
+                Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush
+                        StartPoint="0 1"
+                        EndPoint="0 0">
+                        <GradientStop
+                            Offset="0.9"   />
+                        <GradientStop
+                            Offset="0"
+                            Color="BurlyWood"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <Setter 
+                 Property="FontFamily"
+                Value="Edwardian Script ITC"
+            />
+        </Style>
+    </Window.Resources>
+
+    <UniformGrid
+        x:Name="uniGrid"
+        Columns="4"
+        Rows="4">
+        <Label>Label 1</Label>
+        <Label>Label 2</Label>
+        <Label>Label 3</Label>
+        <Label >Label 4</Label>
+
+        <Button  Click="Button_Click">Button 1</Button>
+        <Button Click="Button_Click_1">Button 2</Button>
+        <Button Click="Button_Click_2" Style="{StaticResource ResourceKey=MyStyle}">Button 3</Button>
+        <Button>Button 4</Button>
+
+        <Label Style="{StaticResource ResourceKey= CenteredContent}" >Label 5</Label>
+        <Label Style ="{StaticResource ResourceKey=BigCentered }">Label 6</Label>
+        <Label >Label 7</Label>
+        <Label>Label 8</Label>
+
+        <CheckBox
+            x:Name="check1"> Отметить</CheckBox>
+
+    </UniformGrid>
+</Window>
+
+<!--
+    Триггеры 
+    В общем: переключатели
+    В технике: системы с несколькими состояниями 
+    В программировании: 
+    -действия, выполняемые при совпадении определенных условий 
+    trigger event - обработать событие
+    
+    В WPF 
+   СТИЛЕВЫЕ ТРИГГЕРЫ
+    применяют стили при заданных условия 
+    
+    ТРИГГЕРЫ ДАННЫХ
+    отслеживают изменение  в данных и реагируют на них 
+    
+    -->

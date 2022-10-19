@@ -1,0 +1,16 @@
+D:\Паттерны\Adapter\bin\Debug\net5.0\Adapter.exe
+D:\Паттерны\Adapter\bin\Debug\net5.0\Adapter.deps.json
+D:\Паттерны\Adapter\bin\Debug\net5.0\Adapter.runtimeconfig.json
+D:\Паттерны\Adapter\bin\Debug\net5.0\Adapter.runtimeconfig.dev.json
+D:\Паттерны\Adapter\bin\Debug\net5.0\Adapter.dll
+D:\Паттерны\Adapter\bin\Debug\net5.0\ref\Adapter.dll
+D:\Паттерны\Adapter\bin\Debug\net5.0\Adapter.pdb
+D:\Паттерны\Adapter\obj\Debug\net5.0\Adapter.csproj.AssemblyReference.cache
+D:\Паттерны\Adapter\obj\Debug\net5.0\Adapter.GeneratedMSBuildEditorConfig.editorconfig
+D:\Паттерны\Adapter\obj\Debug\net5.0\Adapter.AssemblyInfoInputs.cache
+D:\Паттерны\Adapter\obj\Debug\net5.0\Adapter.AssemblyInfo.cs
+D:\Паттерны\Adapter\obj\Debug\net5.0\Adapter.csproj.CoreCompileInputs.cache
+D:\Паттерны\Adapter\obj\Debug\net5.0\Adapter.dll
+D:\Паттерны\Adapter\obj\Debug\net5.0\ref\Adapter.dll
+D:\Паттерны\Adapter\obj\Debug\net5.0\Adapter.pdb
+D:\Паттерны\Adapter\obj\Debug\net5.0\Adapter.genruntimeconfig.cache

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="mainApp" ng-controller="mainController">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+        border:1px solid gray;
+        border-collapse: collapse;
+       
+        }
+        tr th{
+            border:1px solid gray;
+            padding: 5px;
+            background: pink;
+        }
+         tr td{
+            border:1px solid gray;
+            padding: 5px;
+            background: pink;
+            
+        }
+    </style>
+</head>
+<body>
+  
+    <table >
+        <tbody>
+            <tr><th>Moment</th><th>Author</th>  
+            <th>text</th>
+            </tr>
+            <tr ng-repeat="article in arr">
+                <td ng-click="momClick()">{{article.moment1}}</td>
+                <td>{{article.author}}</td>
+                <td>{{article.text}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script src="./angular.min.js"></script>
+    <script>
+        const mainApp = angular.module("mainApp",[]); 
+        mainApp.controller("mainController",function($scope) 
+         {     
+            $scope.arr = [
+    {moment: "2022-09-05 10:00:00", author: "DNS", text: "Hello!!!"},
+    {moment: "2022-09-04 10:00:00", author: "ASP", text: "Gutten Tag!!"},
+    {moment: "2022-09-03 10:00:00", author: "Ng", text: "Вітаннячко!!!"}
+            ];
+
+        $scope.arr.forEach(
+         a => a.moment1=
+        (new Date(a.moment)).toLocaleString(`uk-ua`)
+        );
+        $scope.arr.sort((a,b)=>Date.parse(a)- Date.parse(b));
+        $scope.momClick=()=>{
+       $scope.arr.sort((a,b)=>Date.parse(a)- Date.parse(b));
+        }
+            // for(let a of $scope.arr)
+            // {
+            // a.moment1 = (new Date(a.moment)).toLocaleString(`uk-ua`);
+            // }
+        });
+    </script>
+    
+        
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React</title>
+    <style>
+        body{
+            margin: 4%;
+            text-align: center;
+            color: aliceblue;
+            background-image: url("https://celes.club/uploads/posts/2022-04/1651194531_2-celes-club-p-nochnoe-nebo-s-oblakami-priroda-krasivo-fo-4.jpg");
+            background-repeat: no-repeat;
+            background-size:cover;       
+    }
+    h1{
+        text
+    }
+    </style>
+</head>
+<body>
+    <h1>Фазы луны</h1>
+    <example></example>
+    <!-- https://www.icalendar37.net/lunar/api/?year=2022&month=9&shadeColor=gray&size=150&texturize=true -->
+    <moon></moon>
+    <script src="./react.development.js"></script>
+    <script src="./react-dom.development.js"></script>
+    <script src="./babel.min.js"></script>
+    <script type="text/babel">
+            function Example(props){
+                var h = "Hello";
+                const [txt, setTxt] = React.useState(h);
+                var obj = {__html: `<b>${h}</b>`};
+                const[divHtml, setDivHtml] = React.useState(obj);
+                const h2Click = React.useCallback( ()=> {
+                    setDivHtml({__html: '<img src="Loading_icon.gif" style="width: 160px" />'});
+                    setTimeout( () => {
+                        setTxt( txt + "*");                   
+                    },2000);    
+                });
+                    React.useEffect(()=>{
+                        obj = {__html: `<b>${txt}</b>`};
+                        setDivHtml(obj);
+                    }, [txt]);
+               
+                return <>
+                    <h2 onClick={h2Click}>Example widget</h2>
+                    <div dangerouslySetInnerHTML={divHtml}></div>
+                </>
+            }
+            ReactDOM.render(
+                <Example date='2022-09-28'/>,
+                document.querySelector('example')
+            );    
+            
+            function Moon(props){
+                const[date, setDate] = React.useState(props.date
+                    ? new Date(props.date)
+                    :new Date()
+                );
+                const [divHtml, setDivHtml] = React.useState({ 
+                      __html: '<img src="Loading_icon.gif" style="width: 160px" />'
+                    });
+                const [lightingHtml, setLightingHtml] = React.useState({
+                    __html: ''
+                });
+
+                const [nameDayHtml, setnameDayHtml] = React.useState({
+                    __html: ''
+                });
+
+                const [monthHtml, setmonthHtml] = React.useState({
+                    __html: ''
+                });
+                const [yearHtml, setyearHtml] = React.useState({
+                    __html: ''
+                });
+
+                const loadMood = () => {
+                    let year = date.getFullYear();                   
+                    let month = date.getMonth()+1;
+                    fetch(`https://www.icalendar37.net/lunar/api/?year=${year}&month=${month}&shadeColor=gray&size=150&texturize=true`)
+                    .then(r=>r.json())
+                    .then(j=>{
+                         let day = date.getDate();
+                        setDivHtml({                           
+                            __html:j.phase[day].svg
+                        });
+                        setLightingHtml({
+                            __html:j.phase[day].lighting.toFixed(2) + "&nbsp%"
+                        });
+                        setnameDayHtml({
+                            __html: "Day:" + j.nameDay[j.phase[day].dayWeek]
+                        });
+                        setmonthHtml({
+                            __html: "Month:" + j.monthName
+                        });
+                        setyearHtml({
+                            __html: "Year:" + j.year
+                        });
+                    });
+                };
+
+                React.useEffect( () => {
+                    loadMood();
+                },[]);
+
+                const onDateChange = e => {
+                    const val = e.target.value;
+                    setDate(new Date(val));
+                    
+                };
+
+                React.useEffect( () => {
+                    setDivHtml({
+                        __html: '<img src="Loading_icon.gif" style="width: 160px" />'
+                    });
+                    setTimeout(loadMood,500);
+                },[date]);
+
+
+
+                return <>
+                    <h2>Moon widget</h2>
+                    <input type="date"
+                    onChange={onDateChange}
+                     defaultValue={date.toISOString().substring(0,10)}/>
+                    <div dangerouslySetInnerHTML={divHtml}></div>
+                    <div dangerouslySetInnerHTML={lightingHtml}></div>
+                    <div dangerouslySetInnerHTML={nameDayHtml}></div>
+                    <div dangerouslySetInnerHTML={monthHtml}></div>
+                    <div dangerouslySetInnerHTML={yearHtml}></div>
+                </>
+            }
+            ReactDOM.render(
+                <Moon date='2022-09-28'/>,
+                document.querySelector('moon')
+            );  
+    </script>
+</body>
+</html>

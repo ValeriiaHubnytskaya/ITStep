@@ -1,0 +1,11 @@
+D:\Паттерны\Tuples\bin\Debug\netcoreapp2.2\Tuples.deps.json
+D:\Паттерны\Tuples\bin\Debug\netcoreapp2.2\Tuples.runtimeconfig.json
+D:\Паттерны\Tuples\bin\Debug\netcoreapp2.2\Tuples.runtimeconfig.dev.json
+D:\Паттерны\Tuples\bin\Debug\netcoreapp2.2\Tuples.dll
+D:\Паттерны\Tuples\bin\Debug\netcoreapp2.2\Tuples.pdb
+D:\Паттерны\Tuples\obj\Debug\netcoreapp2.2\Tuples.csprojAssemblyReference.cache
+D:\Паттерны\Tuples\obj\Debug\netcoreapp2.2\Tuples.csproj.CoreCompileInputs.cache
+D:\Паттерны\Tuples\obj\Debug\netcoreapp2.2\Tuples.AssemblyInfoInputs.cache
+D:\Паттерны\Tuples\obj\Debug\netcoreapp2.2\Tuples.AssemblyInfo.cs
+D:\Паттерны\Tuples\obj\Debug\netcoreapp2.2\Tuples.dll
+D:\Паттерны\Tuples\obj\Debug\netcoreapp2.2\Tuples.pdb

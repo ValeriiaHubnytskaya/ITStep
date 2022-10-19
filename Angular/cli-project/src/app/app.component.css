@@ -1,0 +1,12 @@
+td, th {
+    border: 1px dotted rgb(85, 46, 65);
+    padding: 10px;
+}
+ th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #a01e33;
+    color: white;
+
+}

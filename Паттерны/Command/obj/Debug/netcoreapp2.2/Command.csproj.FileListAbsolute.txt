@@ -1,0 +1,4 @@
+D:\Паттерны\Command\obj\Debug\netcoreapp2.2\Command.csprojAssemblyReference.cache
+D:\Паттерны\Command\obj\Debug\netcoreapp2.2\Command.csproj.CoreCompileInputs.cache
+D:\Паттерны\Command\obj\Debug\netcoreapp2.2\Command.AssemblyInfoInputs.cache
+D:\Паттерны\Command\obj\Debug\netcoreapp2.2\Command.AssemblyInfo.cs

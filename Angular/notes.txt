@@ -1,0 +1,41 @@
+Angular
+
+Angular JS - библиотека подключаемая к HTML-странице 
+и обеспечивающая дополнительную функциональность к JS
+
+CLI - Command Line Interface - приложение, позволяющее отделить
+разработку фронтенда, разбить ее на файлы-компоненты,
+а также при сборке соединить файлы
+
+HTTP CLI: 
+1.  Подключаем службу: app.module.ts
+    import { HttpClientModule} from '@angular/common/http'
+
+    imports: [
+    BrowserModule,
+    HttpClientModule
+    ],
+2.Подключаем службу
+    app.components.ts
+    -----------------------------------------
+    ng serve open --запустить проект и открыть в браузере
+    -----------------------------------------------------
+
+    Реактивные формы
+    -Создаем новый компонент (reform)
+    >ng generate component reformВ результате выполнения команды:
+    создается папака реформ, в ней файлы компонента
+    обновляется app.module.ts, добавляется директивы подключения компонентапоявляется возможность включать в HTML (
+    в т.ч. в шаблоны других компонент тег <app-reform></app-reform>)
+    -Импортируем модуль реактивных формы
+    import {ReactiveFormsModule} from '@angular/forms'
+    ......
+      imports: [ 
+      ...,
+      ReactiveFormsModule
+  ],
+
+  -Импортиру
+  import { FormControl, FormGroup, Validators} from '@angular/forms'
+  
+    

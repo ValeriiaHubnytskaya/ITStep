@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angular Controller</title>
+</head>
+<body>
+    <h1>Angular Контроллеры</h1>
+    {{ 2+3 }}
+    <div ng-app="mainApp">
+        <div ng-controller="mainController">
+               {{ data1 }}
+             <input ng-model="data1"/>
+             <button ng-click="btnClick()">Press</button>
+            <i>{{ data2 }}</i>
+            </div>       
+    </div>
+    {{ 2+3 }}
+
+    <script src="./angular.min.js"></script>
+    <script>
+        const mainApp =             //модуль
+         angular                    //создаем модуль для 
+         .module("mainApp",[]);     //элемента ng-app="mainApp"
+    
+         mainApp.controller(        //создаем контроллер
+            "mainController",           //имя контроллера (ng-controller)
+            function($scope) {           //функция инициализация
+                $scope.data1 =              //$scope - лексикографическое окружение
+                    "Hello";  
+                    $scope.data2 = "";           // создаем в scope переменную data1
+                $scope.btnClick =
+                function()
+                {
+                    $scope.data2 = $scope.data1;
+                }              
+            }
+        )    
+    </script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Basics</title>
+</head>
+<body>
+    <h1>Основы React</h1>
+    <!-- <p>
+    React (ReactJS) - библиотека для задач фронтенда.
+    Подключение.
+    https://unpkg.com/react@16/umd/react.production.min.js 
+    and
+    react.development.js 
+</p>
+
+<p>
+    React базируется на компонентах, модуль ядра задает
+    классы функциональности, локализирует области компонент.
+    ReactDom отвечает за взаимодействие с ДОМ.
+    Для создания компонента нужно:
+    <br/>
+    Описать класс, наследуя Реакт.Компонент.
+    Основной метод класса - рендер, отвечает за изображение компонента.
+</p>
+    Встроить класс в контейнер - DOM элемент
+-->
+
+<div id = "hello-container"></div>
+<div id="container2"></div>
+<script src="./react.development.js"></script>
+<script src="./react-dom.development.js"></script>
+<script>
+class Hello extends React.Component {
+    render()
+    {
+        return React.createElement('h2', null, "Hello, World");
+    }
+}
+ReactDOM.render(
+React.createElement(Hello,null,null),
+    document.getElementById('hello-container'));
+    
+
+</script>
+<script>
+    class  Container2 extends React.Component {
+        render()
+        {
+            return React.createElement(
+                'ul',       //тег или класс - создаваемый элемент
+                {           //props - объект со "свойствами"
+                    style:{
+                        color:'fuchsia'
+                    }
+                },
+                // Дочерние элементы через запятую или массивом
+                React.createElement('li',{},"Items first"),
+                React.createElement('li',{},"Items second"),
+                React.createElement('li',{},"Items third"),
+                React.createElement('ol',{
+                    className: 'sublist', id: 'sub-list'},
+                    [
+                        React.createElement('li',{key:1},"Items first"),
+                        React.createElement('li',{key:2},"Items second"),
+                        React.createElement('li',{key:3},"Items third"),
+                    ]
+                )
+            );
+        }
+    }
+    ReactDOM.render(
+    React.createElement(React.Fragment, null,
+    React.createElement(Container2,null,null)),
+        document.getElementById('container2'));
+        
+    
+    </script>
+</body>
+</html>

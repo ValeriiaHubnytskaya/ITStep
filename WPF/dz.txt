@@ -1,0 +1,1 @@
+https://dev.azure.com/Zerefe63/_git/WPF?path=/WPF/WpfApp1/Trigers.xaml

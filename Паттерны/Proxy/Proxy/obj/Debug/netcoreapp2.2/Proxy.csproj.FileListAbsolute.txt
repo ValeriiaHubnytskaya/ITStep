@@ -1,0 +1,11 @@
+D:\Паттерны\Proxy\Proxy\bin\Debug\netcoreapp2.2\Proxy.deps.json
+D:\Паттерны\Proxy\Proxy\bin\Debug\netcoreapp2.2\Proxy.runtimeconfig.json
+D:\Паттерны\Proxy\Proxy\bin\Debug\netcoreapp2.2\Proxy.runtimeconfig.dev.json
+D:\Паттерны\Proxy\Proxy\bin\Debug\netcoreapp2.2\Proxy.dll
+D:\Паттерны\Proxy\Proxy\bin\Debug\netcoreapp2.2\Proxy.pdb
+D:\Паттерны\Proxy\Proxy\obj\Debug\netcoreapp2.2\Proxy.csprojAssemblyReference.cache
+D:\Паттерны\Proxy\Proxy\obj\Debug\netcoreapp2.2\Proxy.csproj.CoreCompileInputs.cache
+D:\Паттерны\Proxy\Proxy\obj\Debug\netcoreapp2.2\Proxy.AssemblyInfoInputs.cache
+D:\Паттерны\Proxy\Proxy\obj\Debug\netcoreapp2.2\Proxy.AssemblyInfo.cs
+D:\Паттерны\Proxy\Proxy\obj\Debug\netcoreapp2.2\Proxy.dll
+D:\Паттерны\Proxy\Proxy\obj\Debug\netcoreapp2.2\Proxy.pdb

@@ -1,0 +1,11 @@
+D:\Паттерны\Builder_NET\bin\Debug\netcoreapp2.2\Builder_NET.deps.json
+D:\Паттерны\Builder_NET\bin\Debug\netcoreapp2.2\Builder_NET.runtimeconfig.json
+D:\Паттерны\Builder_NET\bin\Debug\netcoreapp2.2\Builder_NET.runtimeconfig.dev.json
+D:\Паттерны\Builder_NET\bin\Debug\netcoreapp2.2\Builder_NET.dll
+D:\Паттерны\Builder_NET\bin\Debug\netcoreapp2.2\Builder_NET.pdb
+D:\Паттерны\Builder_NET\obj\Debug\netcoreapp2.2\Builder_NET.csprojAssemblyReference.cache
+D:\Паттерны\Builder_NET\obj\Debug\netcoreapp2.2\Builder_NET.csproj.CoreCompileInputs.cache
+D:\Паттерны\Builder_NET\obj\Debug\netcoreapp2.2\Builder_NET.AssemblyInfoInputs.cache
+D:\Паттерны\Builder_NET\obj\Debug\netcoreapp2.2\Builder_NET.AssemblyInfo.cs
+D:\Паттерны\Builder_NET\obj\Debug\netcoreapp2.2\Builder_NET.dll
+D:\Паттерны\Builder_NET\obj\Debug\netcoreapp2.2\Builder_NET.pdb

@@ -1,0 +1,31 @@
+body{
+    background: #c8e0e0;
+}
+h1{
+    font-size: 40px;
+    text-align: center;
+    color: #104d4d;
+}
+.loader{
+    max-width: 25vw;
+    image-orientation: from-image;
+}
+.chat-box{
+    border: 1px solid gray;
+    box-shadow: 0 0 7px 3px #0c3b3b;
+}
+
+.chat-box .message{
+    font-size: large;
+    display: flex;
+    flex-direction: row;
+}
+
+.chat-box .message .moment,
+.chat-box .message .author,
+.chat-box .message .text
+{
+    margin: 0.3em 1em 0 0; 
+    padding: 2px;
+   
+}

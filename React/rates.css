@@ -1,0 +1,7 @@
+.rate-table {
+    border: 2px solid darksalmon ;
+    border-collapse: collapse;
+}
+.rate-table th, .rate-table td {
+    border: 1px solid salmon ;
+}

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="mainApp">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angular Directives</title>
+</head>
+<body>
+    <h1>Directives</h1>
+    {{2+3}}
+    <p>
+        Директивы Angular - расширение идеи контроллеров
+        с упрощенным внедрением в DOM элементы. В дополнении к контролерам
+        директивы позволяют внедрять и разметку элементов
+    </p>
+    <p>
+        Директивы внедряютс\ одним из 4х способов:
+    </p>
+    <ul>
+        <li>Через атрибут &lt;div dir1> &lt;/div> - restrict: "A"</li>
+        <li>Через класс &lt;div class= "dir2"> &lt;/div> - restrict: "C"</li>
+        <li>Через тег (имя тега = самый популярныйспособ) &lt;dir3> &lt;/dir3> - restrict: "Е"</li>
+        <li>Через комментарий </li>
+        <li>Комбинированный: - restrict: "ACE"</li>
+    </ul>           
+<div dir1></div>
+<div class="dir2"></div>
+<dir3></dir3>
+<br/>
+<!-- directive:dir4 -->
+
+    <script src="./angular.min.js"></script>
+    <script>
+        const app = angular.module("mainApp",[]);
+        app.directive("dir1",        
+        function()
+        {
+            return{                             //настроичный объект
+                restrict: "A",                  //внедрения - атрибут
+                template: "<b>Directive A</b>"  //разметка
+                    }
+        }
+        );
+
+        app.directive( "dir2",           
+            function(){            
+                return{                             //настроичный объект
+                    restrict: "C",                  //внедрения - атрибут
+                    template: "<b>Directive C, x={{x}}</b>",
+                    scope: {},
+                    controller: function($scope) {                           
+                        $scope.x = 10;    
+                    }        
+                }
+           }     
+        );
+
+        app.directive( "dir3",           
+            function(){            
+                return{                             //настроичный объект
+                    restrict: "E",                  //внедрения - атрибут
+                    template: "<b>Directive E, x={{x}}</b>",
+                    scope: {},
+                    controller: function($scope) {                           
+                        $scope.x = 20;    
+                    }        
+                }
+           }     
+        );
+        app.directive( "dir4",           
+            function(){            
+                return{                             //настроичный объект
+                    restrict: "M",                  //внедрения - атрибут
+                    template: "<b>Directive M, xm={{xm}}</b>",
+                    replace:true,
+                    scope: {},
+                    controller: function($scope) {                           
+                        $scope.xm = 30;    
+                    }        
+                }
+           }     
+        );
+    
+    </script>
+
+</body>
+</html>

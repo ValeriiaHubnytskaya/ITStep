@@ -1,0 +1,81 @@
+﻿<Window x:Class="Calculator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Calculator"
+        mc:Ignorable="d"
+        Title="Calculator" 
+        Height="300" 
+        Width="500"
+        Background="LightGoldenrodYellow"         
+        >
+    <Grid x:Name="MainRoot" 
+          Background="LightGoldenrodYellow"
+          Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition  />
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Button 
+            Grid.Row ="0" Grid.Column="0"
+            Content="INCREMENT"     
+            Margin="10"
+            Padding="10"
+            Background="BurlyWood"
+            Click="Button_Click1"
+            FontFamily="Showcard Gothic"
+           >
+           
+        </Button>
+        <Button 
+            Grid.Row ="0" Grid.Column="1"                    
+            Content="DECREMENT"         
+            Margin="10"
+            Padding="10"
+            Background="BurlyWood"
+            Click="Button_Click2"
+            FontFamily="Showcard Gothic">            
+        </Button>
+        <Button
+            Grid.Row ="1" Grid.Column="0"                    
+            Content="SAVE"         
+            Margin="10"
+            Padding="10"
+            Background="BurlyWood"
+            Click="Save"
+            FontFamily="Showcard Gothic">
+        </Button>
+        <Button
+            Grid.Row ="1" Grid.Column="1"                    
+            Content="READ"         
+            Margin="10"
+            Padding="10"
+            Background="BurlyWood"
+            Click="Read"
+            FontFamily="Showcard Gothic">
+        </Button>
+
+        <TextBox 
+           Grid.Row="0" 
+           Grid.ColumnSpan =" 2"
+           x:Name="number"
+           Text=" 10"
+           TextWrapping="Wrap"
+           Margin="2"
+           Width="30"
+           Height="20"
+            BorderBrush="#FF152D74" 
+            FontFamily="Times New Roman"
+            FontSize="14" 
+            FontWeight="Bold">
+        </TextBox>
+    </Grid>
+</Window>

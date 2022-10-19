@@ -1,0 +1,16 @@
+D:\Паттерны\Fasad\bin\Debug\net5.0\Fasad.exe
+D:\Паттерны\Fasad\bin\Debug\net5.0\Fasad.deps.json
+D:\Паттерны\Fasad\bin\Debug\net5.0\Fasad.runtimeconfig.json
+D:\Паттерны\Fasad\bin\Debug\net5.0\Fasad.runtimeconfig.dev.json
+D:\Паттерны\Fasad\bin\Debug\net5.0\Fasad.dll
+D:\Паттерны\Fasad\bin\Debug\net5.0\ref\Fasad.dll
+D:\Паттерны\Fasad\bin\Debug\net5.0\Fasad.pdb
+D:\Паттерны\Fasad\obj\Debug\net5.0\Fasad.csproj.AssemblyReference.cache
+D:\Паттерны\Fasad\obj\Debug\net5.0\Fasad.GeneratedMSBuildEditorConfig.editorconfig
+D:\Паттерны\Fasad\obj\Debug\net5.0\Fasad.AssemblyInfoInputs.cache
+D:\Паттерны\Fasad\obj\Debug\net5.0\Fasad.AssemblyInfo.cs
+D:\Паттерны\Fasad\obj\Debug\net5.0\Fasad.csproj.CoreCompileInputs.cache
+D:\Паттерны\Fasad\obj\Debug\net5.0\Fasad.dll
+D:\Паттерны\Fasad\obj\Debug\net5.0\ref\Fasad.dll
+D:\Паттерны\Fasad\obj\Debug\net5.0\Fasad.pdb
+D:\Паттерны\Fasad\obj\Debug\net5.0\Fasad.genruntimeconfig.cache

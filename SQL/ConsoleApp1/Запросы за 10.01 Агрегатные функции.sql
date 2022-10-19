@@ -1,0 +1,67 @@
+﻿--количество продаж за "сегодня"
+	--SELECT
+	--COUNT(*) AS [Total, checks], --количество товаров
+	--SUM(Cnt) AS [Total, Psc], -- количество штук
+	--SUM (S.Cnt * P.Price) AS [Total, Money],--сумма чека
+	--MAX(S.Cnt * P.Price) AS [BEST CHECK, Money],
+	--MIN (S.Cnt * P.Price) AS [WORST CHECK, Money],
+	--ROUND (AVG(S.Cnt * P.Price),2) AS [MEAN CHECK, Money]
+	--FROM
+	--Sales S
+	--JOIN Products P ON P.Id = S.ID_product
+	--WHERE
+	 --S.Moment BETWEEN '2020-01-10' AND DATEADD(day, 1, '2020-01-10')
+
+	--Количество проданных молотков и их цена
+	--SELECT 
+	--COUNT(*) AS [Total],
+	--SUM(S.Cnt) As [Price]
+	--FROM
+	--Sales S
+	--WHERE	
+	 --S.Moment BETWEEN '2020-01-10' AND DATEADD(day, 1, '2020-01-10')
+	--AND
+	--S.ID_product =N'7264D33A-16B9-4E22-B3F1-63D6DAE60078'
+
+	---- подзапрос по имени товара
+	--S.Id_product = (
+	--SELECT id
+	--FROM
+	--Products 
+	--Where Name = N'Паяльник 40 Вт'
+	--)
+
+	--КОЛ-ВО ЧЕКОВ , ОФОРМЛЕННЫХ "ВОРОНОВ АЛЕКСАНДР"
+	--SELECT
+	--COUNT(*) AS [Total],
+	--SUM(S.Cnt) As [Price],
+	--SUM(S.Cnt * P.Price) As[Money]
+	--FROM
+	--Sales S
+	--JOIN Products P ON P.Id = S.ID_product
+	--WHERE	
+ --S.Moment BETWEEN '2020-01-10' AND DATEADD(day, 1, '2020-01-10')
+	--AND
+	--S.ID_manager = 'CDE086E1-D25C-4251-A234-10727818EE28'
+	--S.ID_manager = (
+	--SELECT id
+	--FROM
+	--Managers
+	--Where Name = N'Александр' AND Surname = N'Воронов')
+
+	--Количество товаров (штук), проданных сотрудниками отдела кадров
+  --(в т.ч. совместителями)
+--SELECT (S.Cnt) AS [Total, Pcs]
+----DATE_SUB(S.Moment, INTERVAL -1 DAY)
+--FROM 
+--Sales S
+--JOIN Managers M ON M.Id = S.ID_manager
+--WHERE
+-- --S.Moment BETWEEN '2020-01-10' AND DATEADD(day, 1, '2020-01-10')
+--AND(
+--M.Id_main_dep = 'D2469412-0E4B-46F7-80EC-8C522364D099'
+--OR
+--M.Id_sec_dep = '131EF84B-F06E-494B-848F-BB4BC0604266')
+
+--Д.З. Дополнить запросы с добавлением данных за "вчера" (
+--  дату "вчера" вычислять через DATEADD())

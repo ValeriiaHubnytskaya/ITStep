@@ -1,0 +1,15 @@
+1  . Household 300
+2  . Eating Out 200
+3  . Product 200
+4  . Purchases 0
+5  . Transport 0
+6  . Entertaintment 0
+7  . Services 0
+---------------------------------------------
+1  . 300 UAH 
+2  . 200 UAH 
+3  . 200 UAH 
+---------------------------------------------
+1  . Household
+2  . Eating Out
+3  . Product

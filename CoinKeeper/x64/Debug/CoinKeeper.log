@@ -1,0 +1,16 @@
+﻿  BankAccount.cpp
+  CoinKeeper.cpp
+  ConsoleLib.cpp
+  Expenses.cpp
+D:\ООП на С++\CoinKeeper\Expenses.cpp(241,19): warning C4267:  'initializing': conversion from 'size_t' to 'int', possible loss of data
+D:\ООП на С++\CoinKeeper\Expenses.cpp(246,17): warning C4267:  '=': conversion from 'size_t' to 'int', possible loss of data
+D:\ООП на С++\CoinKeeper\Expenses.cpp(335,19): warning C4267:  'initializing': conversion from 'size_t' to 'int', possible loss of data
+D:\ООП на С++\CoinKeeper\Expenses.cpp(340,17): warning C4267:  '=': conversion from 'size_t' to 'int', possible loss of data
+D:\ООП на С++\CoinKeeper\Expenses.cpp(386,19): warning C4267:  'initializing': conversion from 'size_t' to 'int', possible loss of data
+  Graphic.cpp
+D:\ООП на С++\CoinKeeper\Expenses.cpp(391,17): warning C4267:  '=': conversion from 'size_t' to 'int', possible loss of data
+  Income.cpp
+  Wallet.cpp
+  Generating Code...
+D:\ООП на С++\CoinKeeper\Graphic.cpp(6,31): warning C4267:  'argument': conversion from 'size_t' to 'int', possible loss of data
+  CoinKeeper.vcxproj -> D:\ООП на С++\CoinKeeper\x64\Debug\CoinKeeper.exe

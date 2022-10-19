@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angular Components</title>
+</head>
+<body ng-app="mainApp">
+    <h1> Components in Angular</h1>
+    <p>
+        Компоненты - еще один способ создать локальны 
+        области в жокументе. Технически, компоненты - это
+        "обертка" над директивами, но есть отличия.
+    </p>
+    <comp1>Контейнер для компонента 1</comp1>
+    <br/>
+    <comp2>Контейнер для компонента 2</comp2>
+    <br/>
+    <div style="margin: 1%; display:flex; justify-content: center; padding: 1%; width: 800px;  ">
+         <moon></moon>
+         <moon1></moon1>
+         <moon2></moon2>
+    </div>
+    
+    <script src="./angular.min.js"></script>
+    <script>
+        angular                     //использование текучего интерфейса
+        .module("mainApp",[])       //
+        .component(                  //создание компонента
+        "comp1",                   //имя внедряется по тегу (е)
+         {                          //сразу объект, без функции и ретурн
+            template:`<b ng-click = "bClick()">Comp1 template x={{x}}</b>`,
+            controller: function($scope)
+            {
+                $scope.x=10;
+                $scope.bClick = function(){
+                $scope.x++;
+                }
+            }
+         })
+         .component(                  //создание следующего компонента
+        "comp2",                   //в одной текучей инструкции
+         {                          
+            template:`<b  ng-click = "bClick()">Comp2 template x={{x}}</b>`,
+            controller: function($scope)
+            {
+                $scope.x=20;
+                $scope.bClick = function(){
+                $scope.x++;
+                }
+            }
+         }
+         )
+         .component(
+         "moon",
+         {
+            template:
+            `<div style="border: 2px solid grey; width: 250px;  padding: 1.5%";>
+                <span>Month: </span><b>{{moonData.monthName}} <span>{{moonData.month}}</span></b>
+                <br/>
+                <span>Day: </span><b>{{moonData.dayName}}</b>
+                <br/>
+                <span>Year: </span><b>{{moonData.year}}</b>
+                <div>{{moonData.phaseName}}</div>
+                <div id = 'moonPhase'>
+                    {{svg}}
+                </div>
+                <div>{{moonData.lighting}}%</div> 
+                <p ng-repeat="p in phaseKeys">{{phase[p].lighting}}</p>
+               
+         </div>`,
+        controller: function($scope, $http)
+        {
+            $scope.moonData = {
+            phaseName: "",
+            lighting: 0,
+            monthName: "",
+            dayName: "",
+            month: 0,
+            year: 0
+            };
+                        
+            $http.get(`https://www.icalendar37.net/lunar/api/?year=2022&month=9&shadeColor=lightgray&size=100&texturize=true`)
+            .then(resp =>
+            {
+                const day = new Date('2022-09-11').getDate();
+                // const today = new Data('2022-09-01');
+                // const year = today.getFullYear();
+                // const month = today.getMonth() + 1;
+
+                document.getElementById("moonPhase").innerHTML =
+                 resp.data.phase[day].svg;
+
+                 $scope.moonData.phaseName = 
+                 resp.data.phase[day].phaseName;
+
+                 $scope.moonData.lighting = 
+                 resp.data.phase[day].lighting.toFixed(3);
+                
+                 $scope.moonData.monthName = 
+                 resp.data.monthName; 
+
+                 $scope.moonData.dayName = 
+                 resp.data.nameDay[resp.data.phase[day].dayWeek];
+                 
+                 $scope.moonData.month =
+                 resp.data.month;
+
+                 $scope.moonData.year =
+                 resp.data.year;
+
+                 
+                
+                //  $scope.phaseKeys = Object.keys(resp.data.phase);
+                //  $scope.phase = resp.data.phase;
+                 
+            });
+        }
+        })
+        .component(
+         "moon1",
+         {
+            template:
+            `<div style="border: 2px solid black; width: 250px;margin-left: 9%; padding: 1.5%"; >
+                <span>Month: </span><b>{{moonData.monthName}} <span>{{moonData.month}}</span></b>
+                <br/>
+                <span>Day: </span><b>{{moonData.dayName}}</b>
+                <br/>
+                <span>Year: </span><b>{{moonData.year}}</b>
+                <div>{{moonData.phaseName}}</div>
+                <div id = 'moonPhase1'>
+                    {{svg}}
+                </div>
+                <div>{{moonData.lighting}}%</div> 
+                <p ng-repeat="p in phaseKeys">{{phase[p].lighting}}</p>
+               
+         </div>`,
+        controller: function($scope, $http)
+        {
+            $scope.moonData = {
+            phaseName: "",
+            lighting: 0,
+            monthName: "",
+            dayName: "",
+            month: 0,
+            year: 0
+            };
+                        
+            $http.get(`https://www.icalendar37.net/lunar/api/?year=2022&month=9&shadeColor=lightgray&size=150&texturize=true`)
+            .then(resp =>
+            {
+                const day = new Date('2022-09-12').getDate();
+                 //const today = new Data('2022-09-12');
+                 //const year = today.getFullYear();
+                // const month = today.getMonth() + 1;
+
+                document.getElementById("moonPhase1").innerHTML =
+                 resp.data.phase[day].svg;
+
+                 $scope.moonData.phaseName = 
+                 resp.data.phase[day].phaseName;
+
+                 $scope.moonData.lighting = 
+                 resp.data.phase[day].lighting.toFixed(3);
+                
+                 $scope.moonData.monthName = 
+                 resp.data.monthName; 
+
+                 $scope.moonData.dayName = 
+                 resp.data.nameDay[resp.data.phase[day].dayWeek];
+                 
+                 $scope.moonData.month =
+                 resp.data.month;
+
+                 $scope.moonData.year =
+                 resp.data.year;
+
+                 
+                
+                //  $scope.phaseKeys = Object.keys(resp.data.phase);
+                //  $scope.phase = resp.data.phase;
+                 
+            });
+        }
+        })
+        .component(
+         "moon2",
+         {
+            template:
+            `<div style="border: 2px solid grey; width: 250px;margin-left: 18%; padding: 1.5%"; >
+                <span>Month: </span><b>{{moonData.monthName}} <span>{{moonData.month}}</span></b>
+                <br/>
+                <span>Day: </span><b>{{moonData.dayName}}</b>
+                <br/>
+                <span>Year: </span><b>{{moonData.year}}</b>
+                <div>{{moonData.phaseName}}</div>
+                <div id = 'moonPhase2'>
+                    {{svg}}
+                </div>
+                <div>{{moonData.lighting}}%</div> 
+                <p ng-repeat="p in phaseKeys">{{phase[p].lighting}}</p>
+               
+         </div>`,
+        controller: function($scope, $http)
+        {
+            $scope.moonData = {
+            phaseName: "",
+            lighting: 0,
+            monthName: "",
+            dayName: "",
+            month: 0,
+            year: 0
+            };
+                        
+            $http.get(`https://www.icalendar37.net/lunar/api/?year=2022&month=9&shadeColor=lightgray&size=100&texturize=true`)
+            .then(resp =>
+            {
+                const day = new Date('2022-09-13').getDate();
+                //  const today = new Data('2022-09-12');
+                //  const year = today.getFullYear();
+                //  const month = today.getMonth() + 1;
+
+                document.getElementById("moonPhase2").innerHTML =
+                 resp.data.phase[day].svg;
+
+                 $scope.moonData.phaseName = 
+                 resp.data.phase[day].phaseName;
+
+                 $scope.moonData.lighting = 
+                 resp.data.phase[day].lighting.toFixed(3);
+                
+                 $scope.moonData.monthName = 
+                 resp.data.monthName; 
+
+                 $scope.moonData.dayName = 
+                 resp.data.nameDay[resp.data.phase[day].dayWeek];
+                 
+                 $scope.moonData.month =
+                 resp.data.month;
+
+                 $scope.moonData.year =
+                 resp.data.year;
+
+                 
+                
+                //  $scope.phaseKeys = Object.keys(resp.data.phase);
+                //  $scope.phase = resp.data.phase;
+                 
+            });
+        }
+        })
+        
+     </script>
+</body>
+</html>

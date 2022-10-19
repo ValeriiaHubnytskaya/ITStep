@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Rates</title>
+    <link rel="stylesheet" href="./rates.css" />
+</head>
+<body>
+    <h1>Практика React - курсы валют</h1>
+
+    <rates></rates>
+
+    <script src="./react.development.js"></script>
+    <script src="./react-dom.development.js"></script>
+    <script src="./babel.min.js"></script>
+
+    <script type="text/babel">
+        class Rates extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = {
+                    date: props.date ?? "2021-01-01",
+                    rates: [ ],
+                    orderBy: false
+                };
+                this.dateChange = this.dateChange.bind(this);
+              this.rateSortClick = this.rateSortClick.bind(this);
+                this.comparers = {
+                    txt: (a,b) => a.txt.localeCompare(b.txt),
+                    rate:(a,b) => a.rate - b.rate,
+                    txtDesc: (a,b) => b.txt
+                }
+            } 
+            dateChange(e) {
+                let date = e.target.value;
+                //console.log(e.target.value);
+                this.setState(
+                state => {state.date = date; return state},
+                 this.loadRates
+                );
+               
+            }
+            rateSortClick(){
+                this.setState({
+                    rates: this.state.rates.sort (this.comparers.txt),
+                    orderBy: "rate"
+                })
+            } 
+            loadRates() {
+                /* this.setState( { 
+                    rates: [
+                        { "r030":36,"txt":"Австралійський долар","rate":15.9946,"cc":"AUD","exchangedate":"02.03.2020" },
+                        { "r030":124,"txt":"Канадський долар","rate":18.3002,"cc":"CAD","exchangedate":"02.03.2020" }
+                    ] } ) ; */
+                let date = this.state.date.replaceAll("-","");
+                fetch(`https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?date=${date}&json`)
+                .then( r => r.json() )
+                .then( j => this.setState( { 
+                    rates: j.sort( (a, b) => a.txt.localeCompare(b.txt)),
+                    orderBy: "txt"
+                } ) ) ;    
+            }
+            componentDidMount() {
+                this.loadRates() ;
+            }
+            render() {
+                return <>
+                    <h2>Rates</h2>
+                    <input type="date" defaultValue={this.state.date} onChange={this.dateChange} />
+                    <br/>{ this.state.rates[0] && <b>{this.state.rates[0].exchangedate}</b> }
+                    <table className="rate-table">
+                        <thead>
+                            <tr>
+                                <th>r030</th>
+                                <th>txt{this.state.orderBy == "txt" && <span>S</span>}</th>
+                                <th onclick={this.rateSortClick}>rate</th>
+                            </tr>
+                        </thead>
+                        <tbody>{ this.state.rates.map( rate =>
+                            <tr key={rate.r030}>
+                                <td>{rate.r030}</td>
+                                <td>{rate.txt}</td>
+                                <td>{rate.rate}</td>
+                            </tr> ) }
+                        </tbody>
+                    </table>
+                </>
+            }
+        }
+        ReactDOM.render(
+            <Rates date= {(new Date()).toISOString().slice(0,10)} />,
+            document.querySelector("rates")            
+        );
+    </script>
+</body>
+</html>
