@@ -5,30 +5,43 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PV011</title>
-    <link  href="www/style.css"rel="stylesheet" type="text/css">
+    <link  href="/css/style.css" rel="stylesheet" >
 </head>
 <body>
+
 <h1>PHP</h1>
 <div style="display:flex; flex-direction: column;  font-size:18px;">
+    <img src="/img/image.png" alt="logo" class="logo"/>
     <a   href="/basics">Введение PHP</a>
     <a  href="/fundamentals">Основы PHP</a>
     <a href="/layout">Шаблонизация</a>
+    <a href="/formdata">Данные форм</a>
+    <a href="/db">Работа с БД</a>
+    <?php if(is_array($_AUTH)) { ?>
+        <b>Hello</b>
+    <?php } else {  ?>
+    <form method="post">
+        <label><input name="userlogin" placeholder="login" /></label>
+        <label><input name="userpassw" type="password" /></label>
+        <button>Log in</button>
+        <button>Registration</button>
+    </form>
+    <?php if(is_string($_AUTH)) {echo $_AUTH;} ?>
+    <?php }  ?>
 </div>
     
     <?php 
+    if($path_parts[1] === '') 
+    $path_parts[1] = 'index';
         switch( $path_parts[1]){
-            case ''             :
+          
             case 'index'        :
-                include "index.php";
-                break;
             case 'basics'       :
-                include "basics.php";
-                break;
             case 'fundamentals' :
-                include "fundamentals.php";
-                break;
             case 'layout'   :
-                include "layout.php";
+            case 'formdata'     :
+            case 'db':
+                include "{$path_parts[1]}.php";
                 break;
             default:
            include "error404.php";
