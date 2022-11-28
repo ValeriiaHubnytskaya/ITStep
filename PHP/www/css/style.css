@@ -1,3 +1,35 @@
 .logo {
-width:15%;
+width:5%;
+}
+ .menu{
+    display: flex;
+    margin: 1.5%; 
+    width: 90%;
+    border: 2px solid rgba(173, 184, 180, 0.2);
+    background: rgba(173, 184, 180, 0.2);
+}
+.menu a {
+   
+    font-size: 16px;
+    padding-left: 10px;
+}
+
+.menu input{
+    margin-left: 10px;
+}
+.regist{
+    background: rgba(180, 214, 201, 0.5);
+    color: #066642;
+    font-weight: 1000;
+    padding: 1%;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    text-decoration: center;
+    border: 2px solid rgba(173, 184, 180, 0.2);
+}
+
+.regist input{
+    background: rgba(247, 255, 252,0.5);
+    padding: 1.5%;
 }

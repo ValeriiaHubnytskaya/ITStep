@@ -3,7 +3,7 @@
 $_AUTH = false;
 if (isset($_POST['userlogin'])
 && isset($_POST['userpassw'])){
-    //находим анные в бд по логину
+    //находим данные в бд по логину
     $sql = "SELECT * FROM Users u WHERE u.`login` = '{$_POST['userlogin']}'";
     try{
            $res = $connection->query($sql);

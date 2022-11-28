@@ -10,7 +10,7 @@
 <body>
 
 <h1>PHP</h1>
-<div style="display:flex; flex-direction: column;  font-size:18px;">
+<div  class="menu">
     <img src="/img/image.png" alt="logo" class="logo"/>
     <a   href="/basics">Введение PHP</a>
     <a  href="/fundamentals">Основы PHP</a>
@@ -24,7 +24,7 @@
         <label><input name="userlogin" placeholder="login" /></label>
         <label><input name="userpassw" type="password" /></label>
         <button>Log in</button>
-        <button>Registration</button>
+        <a href="/registration">Reg</a>
     </form>
     <?php if(is_string($_AUTH)) {echo $_AUTH;} ?>
     <?php }  ?>
@@ -41,6 +41,7 @@
             case 'layout'   :
             case 'formdata'     :
             case 'db':
+            case 'registration' :
                 include "{$path_parts[1]}.php";
                 break;
             default:

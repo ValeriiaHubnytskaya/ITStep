@@ -1,9 +1,9 @@
-<form method="post">
+<form method="post" class="regist">
 
-<label>Имя<input type="text"></label><br/>
-<label>Логин<input type="text"></label><br/>
-<label>пароль<input type="text"></label> <br/>
-<label>EMAIL<input type="text"></label><br/>
-<label>Номер телефона<input type="text"></label><br/>
+<label>Имя <br/><input type="text"></label><br/>
+<label>Логин <br/><input type="text"></label><br/>
+<label>Пароль <br/><input type="text"></label> <br/>
+<label>Email <br/><input type="text"></label><br/>
+<label>Номер телефона <br/><input type="text"></label><br/>
 
 </form>
