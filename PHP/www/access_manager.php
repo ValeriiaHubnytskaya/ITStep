@@ -23,10 +23,18 @@ if(empty($connection)){
 }
 include "auth.php";
 
-// ~View
+//~Controllers
+$controller_file = "controllers/" .$path_parts[1]. "_controller.php";
+if(is_file($controller_file)){
+    include $controller_file;
+}
+else {
+    //~View
+    include "_layout.php";
+}
 
-include "_layout.php" ;
-// include "registration.php";
+
+
 
 function flush_file( $filename ) {
     ob_clean() ;                    // очищаем буферизацию

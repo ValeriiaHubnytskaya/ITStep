@@ -1,7 +1,7 @@
 .logo {
 width:5%;
 }
- .menu{
+.menu{
     display: flex;
     margin: 1.5%; 
     width: 90%;
@@ -17,7 +17,10 @@ width:5%;
 .menu input{
     margin-left: 10px;
 }
-.regist{
+
+/* registrtion form */
+
+.registerForm{
     background: rgba(180, 214, 201, 0.5);
     color: #066642;
     font-weight: 1000;
@@ -29,7 +32,14 @@ width:5%;
     border: 2px solid rgba(173, 184, 180, 0.2);
 }
 
-.regist input{
+.registerForm input{
     background: rgba(247, 255, 252,0.5);
     padding: 1.5%;
+}
+
+.registerForm button{
+   background: rgba(6, 122, 45, 0.603);
+  align-items: center;
+  padding: 2%;
+  margin: 0 70px 0 4px;
 }

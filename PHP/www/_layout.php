@@ -24,7 +24,7 @@
         <label><input name="userlogin" placeholder="login" /></label>
         <label><input name="userpassw" type="password" /></label>
         <button>Log in</button>
-        <a href="/registration">Reg</a>
+        <a href="/register">Регистрация</a>
     </form>
     <?php if(is_string($_AUTH)) {echo $_AUTH;} ?>
     <?php }  ?>
@@ -41,7 +41,7 @@
             case 'layout'   :
             case 'formdata'     :
             case 'db':
-            case 'registration' :
+            case 'register' :
                 include "{$path_parts[1]}.php";
                 break;
             default:
