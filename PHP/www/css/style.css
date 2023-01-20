@@ -43,3 +43,9 @@ width:5%;
   padding: 2%;
   margin: 0 70px 0 4px;
 }
+.user-avatar{
+    /* border-radius: 40%; */
+    margin-left: 1%;
+    max-height: 40px;
+    max-width: 50px;
+}

@@ -1,9 +1,12 @@
 <?php 
+$_CONTEXT = []; //наши глобальные данные - контекст запроса
 $path = explode( '?', $_SERVER[ 'REQUEST_URI' ] )[0] ;     // адрес запроса - начало маршрутизации
+$_CONTEXT['path'] = $path;
 /* Создание диспетчера доступа приводит к тому, что запросы к файлам,
    которые раньше автоматически "отдавал" Apache, теперь приходят
    к нам 
 */
+
 $local_path = '.' . $path ;
 if( is_file( $local_path ) ) {   // запрос - существующий файл
     if(flush_file( $local_path ))      // наша функция отправки файла (см. ниже)
@@ -14,13 +17,15 @@ if( is_file( $local_path ) ) {   // запрос - существующий фа
 
 $path_parts = explode( '/', $path ) ;    // ~split - разбивает строку по разделителю
 // echo "<pre>" ; print_r( $path_parts ) ;  // массив частей пути, [0] всегда пустой
-
+$_CONTEXT['path_parts'] = $path_parts;
 // ~MiddleWare
 include "dbms.php";
 if(empty($connection)){
     echo"DB error";
     exit;
 }
+$_CONTEXT['connection'] = $connection;
+
 include "auth.php";
 
 //~Controllers

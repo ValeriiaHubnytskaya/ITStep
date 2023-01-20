@@ -17,8 +17,14 @@
     <a href="/layout">Шаблонизация</a>
     <a href="/formdata">Данные форм</a>
     <a href="/db">Работа с БД</a>
-    <?php if(is_array($_AUTH)) { ?>
-        <b>Hello</b>
+    <a  style="color:maroon" href="/email_test">E-mail</a>
+     
+
+    <?php if(is_array($_CONTEXT['auth_user'])) { ?>
+        <b>Hello, <?= $_CONTEXT['auth_user']['name'] ?></b>
+        <img class='user-avatar' src = '/avatars/<?= empty($_CONTEXT['auth_user']['avatar']) ? 'images.png': $_CONTEXT['auth_user']['avatar'] ?>'
+        <!-- Кнопка выхода из авторизованого режима - ссылка передающая параметр logout-->
+        <a class="logout" href="?logout"> Log Out </a>
     <?php } else {  ?>
     <form method="post">
         <label><input name="userlogin" placeholder="login" /></label>
@@ -26,8 +32,9 @@
         <button>Log in</button>
         <a href="/register">Регистрация</a>
     </form>
-    <?php if(is_string($_AUTH)) {echo $_AUTH;} ?>
-    <?php }  ?>
+    <?php if(isset($_CONTEXT['auth_error'])) {echo $_CONTEXT['auth_error'];} ?>
+    <?php }  ?>  
+    
 </div>
     
     <?php 
@@ -41,6 +48,7 @@
             case 'layout'   :
             case 'formdata'     :
             case 'db':
+            case 'email_test':
             case 'register' :
                 include "{$path_parts[1]}.php";
                 break;
