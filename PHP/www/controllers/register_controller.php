@@ -89,42 +89,45 @@ switch( strtoupper($_SERVER['REQUEST_METHOD'])){
                     }
                 }
             }
+            
 
         }
 
-        // if( empty( $_SESSION[ 'reg_error' ] ) ) {
-        //     // подключаем фукнцию отправки почты
-        //     @include_once "helper/send_email.php" ;
-        //     if( ! function_exists( "send_email" ) ) {
-        //         $_SESSION[ 'reg_error' ] = "Inner error" ;
-        //     }
-        // }
+        if( empty( $_SESSION[ 'reg_error' ] ) ) {
+            // подключаем фукнцию отправки почты
+            @include_once "helper/send_email.php" ;
+            if( ! function_exists( "send_email" ) ) {
+                $_SESSION[ 'reg_error' ] = "Inner error" ;
+            }
+        }
+
         if(empty($_SESSION['reg_error'])){
             //$_SESSION['reg_error'] = "ok";
             $salt = md5(random_bytes(16));
             $pass = md5($_POST['confirm'] . $salt);
             $confirm_code = bin2hex(random_bytes(3));
-            
-                
-            $sql = "INSERT INTO Users(`id`, `login`, `name`, `salt`, `pass`, `email`, `confirm`, `avatar`)
-             VALUES(                   UUID(),?,       ?,   '$salt','$pass'     ,?,     ?,          ?)";
-             try{
-                $prep = $connection->prepare($sql);
-                $prep->execute(
-                    [$_POST['login'],
-                    $_POST['name'],
-                    $_POST['email'],
-                    $confirm_code,
-                    isset($avatar_saved_name) ? $avatar_saved_name: null
-                ]);
-                $_SESSION['reg_ok'] = "REG OK";
-            }
-            catch (PDOException $ex){
-                $_SESSION['reg_error'] = $ex->getMessage();
-            }
+            send_email( $_POST['email'], 
+            "pv011.local Email verification", 
+            "<b>Hello, {$_POST['userName']}</b><br/>
+            Type code <strong>$confirm_code</strong> to confirm email<br/>
+            Or follow next <a href='https://php.local/confirm?code={$confirm_code}&email={$_POST['email']}'>link</a>" ) ;
 
-            
+        $sql = "INSERT INTO Users(`id`, `login`,`name`, `salt`, `pass`, `email`,`confirm`,      `avatar`) 
+                VALUES(            UUID(),?,      ?,    '$salt','$pass',   ?,   '$confirm_code',    ?)" ;
+        try {
+            $prep = $connection->prepare( $sql ) ;
+            $prep->execute( [ 
+                $_POST['login'], 
+                $_POST['userName'], 
+                $_POST['email'],
+                isset( $avatar_saved_name ) ? $avatar_saved_name : null
+            ] ) ;
+            $_SESSION[ 'reg_ok' ] = "Reg ok" ;
         }
+        catch( PDOException $ex ) {
+            $_SESSION[ 'reg_error' ] = $ex->getMessage() ;
+        }
+    }
         else {
             $_SESSION['login'] = $_POST['login'];
             $_SESSION['email'] = $_POST['email'];

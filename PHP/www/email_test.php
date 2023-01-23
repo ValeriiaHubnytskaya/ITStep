@@ -1,7 +1,8 @@
 <?php
 
 include_once "helper/send_email.php" ;
-if( ! function_exists( "send_email" ) ) {
+
+if( ! function_exists( "send_email" ) ) { //функция с отрицанием
     echo "include error" ;
     exit ;
 }

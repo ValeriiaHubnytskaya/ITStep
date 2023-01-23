@@ -19,21 +19,7 @@
     <a href="/db">Работа с БД</a>
     <a  style="color:maroon" href="/email_test">E-mail</a>
      
-
-    <?php if(is_array($_CONTEXT['auth_user'])) { ?>
-        <b>Hello, <?= $_CONTEXT['auth_user']['name'] ?></b>
-        <img class='user-avatar' src = '/avatars/<?= empty($_CONTEXT['auth_user']['avatar']) ? 'images.png': $_CONTEXT['auth_user']['avatar'] ?>'
-        <!-- Кнопка выхода из авторизованого режима - ссылка передающая параметр logout-->
-        <a class="logout" href="?logout"> Log Out </a>
-    <?php } else {  ?>
-    <form method="post">
-        <label><input name="userlogin" placeholder="login" /></label>
-        <label><input name="userpassw" type="password" /></label>
-        <button>Log in</button>
-        <a href="/register">Регистрация</a>
-    </form>
-    <?php if(isset($_CONTEXT['auth_error'])) {echo $_CONTEXT['auth_error'];} ?>
-    <?php }  ?>  
+    <?php include "_auth.php" ?>
     
 </div>
     
