@@ -102,13 +102,12 @@ switch( strtoupper($_SERVER['REQUEST_METHOD'])){
         }
 
         if(empty($_SESSION['reg_error'])){
-            //$_SESSION['reg_error'] = "ok";
             $salt = md5(random_bytes(16));
             $pass = md5($_POST['confirm'] . $salt);
             $confirm_code = bin2hex(random_bytes(3));
             send_email( $_POST['email'], 
             "pv011.local Email verification", 
-            "<b>Hello, {$_POST['userName']}</b><br/>
+            "<b>Hello, {$_POST['name']}</b><br/>
             Type code <strong>$confirm_code</strong> to confirm email<br/>
             Or follow next <a href='https://php.local/confirm?code={$confirm_code}&email={$_POST['email']}'>link</a>" ) ;
 
@@ -118,7 +117,7 @@ switch( strtoupper($_SERVER['REQUEST_METHOD'])){
             $prep = $connection->prepare( $sql ) ;
             $prep->execute( [ 
                 $_POST['login'], 
-                $_POST['userName'], 
+                $_POST['name'], 
                 $_POST['email'],
                 isset( $avatar_saved_name ) ? $avatar_saved_name : null
             ] ) ;
@@ -134,6 +133,7 @@ switch( strtoupper($_SERVER['REQUEST_METHOD'])){
             $_SESSION['name'] = $_POST['name'];
         }
         header("Location: /" .$path_parts[1]);
+        
         // echo "<pre>"; print_r($_POST);
         break;
 

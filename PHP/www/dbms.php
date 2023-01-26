@@ -11,7 +11,7 @@ try {
 }
 
 catch( PDOException $ex ) {
-
+    $_CONTEXT['loger']( 'db connection ' . $ex->getMessage() ) ;
     $connection = null ;
-
 }
+

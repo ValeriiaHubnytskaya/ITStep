@@ -1,6 +1,7 @@
 <?php 
+$_LOGGER_FILE = "logs/pv011_log.txt" ;
 $_CONTEXT = []; //наши глобальные данные - контекст запроса
-$path = explode( '?', $_SERVER[ 'REQUEST_URI' ] )[0] ;     // адрес запроса - начало маршрутизации
+$path = explode( '?', urldecode($_SERVER[ 'REQUEST_URI' ] ))[0] ;     // адрес запроса - начало маршрутизации
 $_CONTEXT['path'] = $path;
 /* Создание диспетчера доступа приводит к тому, что запросы к файлам,
    которые раньше автоматически "отдавал" Apache, теперь приходят
@@ -18,10 +19,12 @@ if( is_file( $local_path ) ) {   // запрос - существующий фа
 $path_parts = explode( '/', $path ) ;    // ~split - разбивает строку по разделителю
 // echo "<pre>" ; print_r( $path_parts ) ;  // массив частей пути, [0] всегда пустой
 $_CONTEXT['path_parts'] = $path_parts;
+$_CONTEXT['loger'] = make_logger();
+
 // ~MiddleWare
 include "dbms.php";
 if(empty($connection)){
-    echo"DB error";
+   header("Location: page500.html");
     exit;
 }
 $_CONTEXT['connection'] = $connection;
@@ -62,6 +65,17 @@ function flush_file( $filename ) {
     header("Content-Type: $content_type");
     readfile( $filename) ;        // копируем файл в ответ сервера
     return true;
+}
+
+//возвращает параметизированную функцию
+function make_logger() {
+    return function( $msg, $code = 500 ) {
+        global $_LOGGER_FILE ;
+        $f = fopen( $_LOGGER_FILE, "at" ) ;
+        fwrite( $f, date( 'Y-m-d H:i:s ' ) . $code . ' ' . $msg . "\n" ) ;
+        fclose( $f ) ;
+    } ;
+   
 }
 
 // суперглобальные массивы - массивы, доступные из любой "точки" РНР

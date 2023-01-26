@@ -55,13 +55,13 @@
     $_FILES: <?php print_r($_FILES) ?>
 </pre>
 </p>
-<?php if(isset($_FILES['formfile'])){
-        if($_FILES['formfile']['error']===0){
-            if($_FILES['formfile']['size']>0){
-                move_uploaded_file(
-                    $_FILES['formfile']['tmp_name'],
-                    './uploads/' . $_FILES['formfile']['name'];
-                )
-            }
+<?php if( isset( $_FILES['formfile'] ) ) {        // передача есть
+    if( $_FILES['formfile']['error'] === 0 ) {    // нет ошибки
+        if( $_FILES['formfile']['size'] > 0 ) {   // есть данные
+            move_uploaded_file( 
+                $_FILES['formfile']['tmp_name'],
+                './uploads/' . $_FILES['formfile']['name'] 
+            ) ;
         }
     }
+} ?>
