@@ -19,13 +19,13 @@ if( is_file( $local_path ) ) {   // запрос - существующий фа
 $path_parts = explode( '/', $path ) ;    // ~split - разбивает строку по разделителю
 // echo "<pre>" ; print_r( $path_parts ) ;  // массив частей пути, [0] всегда пустой
 $_CONTEXT['path_parts'] = $path_parts;
-$_CONTEXT['loger'] = make_logger();
+$_CONTEXT['logger'] = make_logger();
+$_CONTEXT['show500'] = function(){header("Location: /page500.html");exit;};
 
 // ~MiddleWare
 include "dbms.php";
 if(empty($connection)){
-   header("Location: page500.html");
-    exit;
+    $_CONTEXT['show500'](); // exit - inside function
 }
 $_CONTEXT['connection'] = $connection;
 
