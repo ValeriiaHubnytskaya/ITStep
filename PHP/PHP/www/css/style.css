@@ -1,0 +1,100 @@
+.logo {
+width:5%;
+}
+.menu{
+    display: flex;
+    margin: 1.5%; 
+    width: 90%;
+    border: 2px solid rgba(173, 184, 180, 0.2);
+    background: rgba(173, 184, 180, 0.2);
+}
+.menu a {
+   
+    font-size: 16px;
+    padding-left: 10px;
+}
+
+.menu input{
+    margin-left: 10px;
+}
+
+/* registrtion form */
+
+.registerForm{
+    background: rgba(180, 214, 201, 0.5);
+    color: #066642;
+    font-weight: 1000;
+    padding: 1%;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    text-decoration: center;
+    border: 2px solid rgba(173, 184, 180, 0.2);
+}
+
+.registerForm input{
+    background: rgba(247, 255, 252,0.5);
+    padding: 1.5%;
+}
+
+.registerForm button{
+   background: rgba(6, 122, 45, 0.603);
+  align-items: center;
+  padding: 2%;
+  margin: 0 70px 0 4px;
+}
+.user-avatar{
+    /* border-radius: 40%; */
+    margin-left: 1%;
+    max-height: 40px;
+    max-width: 50px;
+}
+
+/* Style for profile.php */
+.profile-container {
+    align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+    padding-top: 30px;
+}
+.profile-avatar {
+    border: 1px solid black;
+    border-radius: 50%;
+    box-shadow: 0px 0px 15px #16359c;
+    height: 150px;
+    width: 150px;
+}
+.profile-name {
+    color:#3214b8;
+    margin-top: 0px;
+    text-shadow: 1px 1px 1px black;
+}
+.profile-table {
+    border: 2px solid black;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+.profile-table tr td {
+    border: 1px solid black;
+    padding: 5px;
+}
+.profile-table tr td:first-child {
+    background-color: #6888e0;
+}
+.profile-input {
+    background-color: transparent;
+    font-weight: 600;
+    padding: 5px;
+}
+.update-profile-btn {
+    border: 1px solid black;
+    background-color: #6888e0;
+    box-shadow: 0px 0px 5px black;
+    font-weight: bold;
+    margin-top: 3px;
+    padding: 10px;
+}
+.update-profile-btn:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 0px 5px black;}
