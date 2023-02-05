@@ -34,9 +34,7 @@ if( $_SERVER[ 'REQUEST_METHOD' ] == 'PUT' ) {
     // с объектами РНР работает чуть хуже, чем с массивами
     $data = json_decode( $body, true ) ;  // преобразование полученных данных в ассоц.массив(true)
     
-    // TODO: проверить новый логин на занятость, если меняется почта, то высылать код подтверждения
     $sql = "SELECT u.login, u.name, u.email FROM Users u WHERE u.id = ?" ;
-
     $sql = "UPDATE Users u SET u.login = ?, u.name = ?, u.email = ? WHERE u.id = ?" ;
     $pars = [ $data["login"], $data["name"], $data["email"], $_CONTEXT['auth_user']['id'] ] ;
     try {
@@ -78,7 +76,7 @@ if( ! is_array( $_CONTEXT[ 'auth_user' ] ) &&
 }  
 else{   
     //просмотр чужого профиля
-    $sql = "SELECT u.* FROM Users u WHERE u.login = ?";
+    $sql = "SELECT u.* FROM Users u WHERE u.login = ? ";
     try{
         $prep = $_CONTEXT[ 'connection' ]->prepare( $sql ) ;
         $prep->execute( [ $_CONTEXT[ 'path_parts' ][2] ] ) ;
