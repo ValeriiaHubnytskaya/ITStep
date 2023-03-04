@@ -81,13 +81,13 @@ else if( $_SERVER[ 'REQUEST_METHOD' ] == 'GET' ) {
         $view_data['name'] = $_SESSION[ 'nameame' ] ;
     }
     //перечень товаров
-    $sql = "SELECT * FROM Products p ORDER BY p.add_dt DESC LIMIT 10";
+    $sql = "SELECT * FROM Products p ORDER BY p.add_dt DESC LIMIT 0, 10";
     try{
         $view_data['products'] = $_CONTEXT['connection']->query($sql)->fetchAll(PDO::FETCH_ASSOC);
 
     }
     catch( PDOException $ex ) {
-        $_CONTEXT['logger']( 'shop_controller4 ' . $ex->getMessage() . $sql ) ;
+        $_CONTEXT['logger']( 'shop_controller ' . $ex->getMessage() . $sql  ) ;
         $view_data[ 'add_error' ] = "Server error try later" ;
     }              
     include "_layout.php" ;  // ~return View

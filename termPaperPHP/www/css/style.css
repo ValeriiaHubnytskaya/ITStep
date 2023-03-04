@@ -1,0 +1,87 @@
+body{
+    background-image: url("https://img.freepik.com/free-photo/composition-of-bathroom-or-spa-objects_23-2147999911.jpg?w=740&t=st=1677680354~exp=1677680954~hmac=00bf414835db4372203104e18ebd752cba6263107db5189d23f22910a04fd3ce");
+    /* background-position: center; */
+    background-size: cover;
+    font-family: 'Caveat',cursive;
+}
+
+/* Головна сторінка  */
+.menu{
+display: flex;
+flex-direction: row;
+font-weight: 200;
+background: rgba(252, 252, 252, 0.555);
+
+}
+
+.menu .title h1{
+    margin-left:30px ;   
+    text-shadow: rgb(63, 143, 45) 6px 9px 9px;
+    color: rgba(0, 0, 0, 0.863);
+    margin-top:15px;
+    font-size: 30px;
+    letter-spacing: .2rem;
+    
+}
+.menu .funct{
+    display: flex;
+    flex-direction: row;
+    margin-left: 18%;
+}
+.menu  a{
+    padding: 10px;
+    font-size: 19px;
+    margin: 1.2% auto;   
+    text-shadow: rgb(63, 143, 45) 6px 9px 9px;
+    color: rgba(0, 0, 0, 0.863);
+    letter-spacing: .1rem;
+   
+}
+.menu .material-symbols-outlined{
+    font-size: 30px;
+    margin: 1.8% auto;  
+    /* text-shadow: rgb(204, 6, 49) 6px 9px 9px; */
+    color: rgba(0, 0, 0, 0.863);
+}
+
+/* Реєстрація */
+.registerForm{
+    background: rgba(252, 252, 252, 0.555);
+    display: flex;
+    flex-direction: column;
+    color: rgba(0, 0, 0, 0.863);
+    font-weight: 1000;
+    padding: 1%;
+    width: 20%;   
+    text-align: center;
+    border: 2px solid rgb(48, 49, 48);
+    box-shadow: 0 0 10px rgb(63, 143, 45);
+    border-radius: 20px;
+    margin: 2.5% auto;   
+    font-size: 20px;
+   
+}
+
+
+.registerForm input{
+    background: rgba(6, 150, 37, 0.363);
+    padding: 1.5%;
+    border-radius: 20px;
+}
+
+.registerForm button{
+  background: rgba(6, 150, 37, 0.363); 
+  font-family: 'Caveat',cursive;
+  font-size: 20px;
+  font-weight: 1000;
+  align-items: center;
+  padding: 0 30px 0 30px;
+  margin: 0 auto;
+  border-radius: 20px;
+}
+.user-avatar{
+    /* border-radius: 40%; */
+    margin-left: 1%;
+    max-height: 40px;
+    max-width: 50px;
+}
