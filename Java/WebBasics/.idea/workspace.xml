@@ -9,13 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="42026725-be2b-4412-afc7-81f0b7d55de5" name="Changes" comment=".">
-      <change beforePath="$PROJECT_DIR$/../../PHP/log/access.log" beforeDir="false" afterPath="$PROJECT_DIR$/../../PHP/log/access.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../PHP/log/error.log" beforeDir="false" afterPath="$PROJECT_DIR$/../../PHP/log/error.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../PHP/www/controllers/shop_controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../PHP/www/controllers/shop_controller.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../PHP/www/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../PHP/www/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../PHP/www/views/shop.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../PHP/www/views/shop.php" afterDir="false" />
-    </list>
+    <list default="true" id="42026725-be2b-4412-afc7-81f0b7d55de5" name="Changes" comment="." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -358,7 +352,7 @@
       <workItem from="1677512852346" duration="10702000" />
       <workItem from="1677688874324" duration="670000" />
       <workItem from="1677839641558" duration="1184000" />
-      <workItem from="1677842668876" duration="9742000" />
+      <workItem from="1677842668876" duration="13172000" />
     </task>
     <servers />
   </component>

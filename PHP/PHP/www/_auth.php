@@ -22,8 +22,8 @@
     
  <!-- Кнопка выхода из авторизованного режима - ссылка передающая параметр "logout" -->
         <a class="logout" href="?logout"> Log Out </a>
-    <?php } else {  ?>
-    <form method="post">
+        <?php } else {  ?>
+        <form method="post">
         <label><input name="userlogin" placeholder="login" /></label>
         <label><input name="userpassw" type="password" /></label>
         <button>Log in</button>

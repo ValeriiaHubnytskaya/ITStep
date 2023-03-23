@@ -11,18 +11,20 @@
 
     <?php include "_auth.php" ?>
 
-    <form method="post" class="registerForm" enctype="multipart/form-data">
+    <form  action="controllers/auth_controller.php"method="post" class="registerForm" >
        
        <label>Логін <br/>
-           <input name="login" value='<?= (isset($view_data['login'])) ? $view_data['login'] : "" ?>' />
+           <input name="login"  />
        </label>
        <br/>
       
        <label>Пароль <br/>
-           <input name="password" type="password" required>
+           <input name="password" type="password" required >
        </label><br/>
       
-       <button>Авторизація</button>
+       <button type="submit">Авторизація</button>
+      
+       
    
    </form>  
 

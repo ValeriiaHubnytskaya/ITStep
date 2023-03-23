@@ -39,19 +39,16 @@ public class UserDao {   // Data Access Object  for entity.User
         }
     }
 
-    public User getUserByCredentials( String login, String password ) {
-        String sql = "SELECT * FROM users WHERE login = ?";
-        try( PreparedStatement prep = dbService.getConnection().prepareStatement(sql) ) {
+    public User getUserByLogin( String login ) {
+        String sql = "SELECT * FROM users WHERE login = ?" ;
+        try( PreparedStatement prep = dbService.getConnection().prepareStatement( sql ) ) {
             prep.setString( 1, login ) ;
             ResultSet res = prep.executeQuery() ;
             if( res.next() ) {
-                User user = new User( res ) ;
-                if( getPassHash( password, user.getSalt() ).equals( user.getPass() ) ) {
-                    return user ;
-                }
+                return new User( res ) ;
             }
         } catch( Exception ex ) {
-            System.err.println( "UserDao::getUserByCredentials" + ex.getMessage() ) ;
+            System.err.println( "UserDao::getUserByLogin" + ex.getMessage() ) ;
         }
         return null ;
     }

@@ -111,9 +111,9 @@ switch( strtoupper($_SERVER['REQUEST_METHOD'])){
             Type code <strong>$confirm_code</strong> to confirm email<br/>
             Or follow next <a href='https://php.local/confirm?code={$confirm_code}&email={$_POST['email']}'>link</a>" ) ;
 
-        $sql = "INSERT INTO Users(`id`, `login`,`name`, `salt`, `pass`, `email`,`confirm`,      `avatar`) 
+             $sql = "INSERT INTO Users(`id`, `login`,`name`, `salt`, `pass`, `email`,`confirm`,      `avatar`) 
                 VALUES(            UUID(),?,      ?,    '$salt','$pass',   ?,   '$confirm_code',    ?)" ;
-        try {
+             try {
             $prep = $connection->prepare( $sql ) ;
             $prep->execute( [ 
                 $_POST['login'], 
@@ -122,11 +122,11 @@ switch( strtoupper($_SERVER['REQUEST_METHOD'])){
                 isset( $avatar_saved_name ) ? $avatar_saved_name : null
             ] ) ;
             $_SESSION[ 'reg_ok' ] = "Reg ok" ;
-        }
-        catch( PDOException $ex ) {
+            }
+            catch( PDOException $ex ) {
             $_SESSION[ 'reg_error' ] = $ex->getMessage() ;
+            }
         }
-    }
         else {
             $_SESSION['login'] = $_POST['login'];
             $_SESSION['email'] = $_POST['email'];
@@ -136,5 +136,6 @@ switch( strtoupper($_SERVER['REQUEST_METHOD'])){
         
         // echo "<pre>"; print_r($_POST);
         break;
+    }
 
 }
