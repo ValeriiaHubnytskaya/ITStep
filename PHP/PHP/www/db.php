@@ -22,7 +22,7 @@
     > mysql -u root -p     (если пароль установлен)
     -- попадаем в СУБД-клиент (консоль)
     Создаем БД для сайта (pv011)
-    
+    >> CREATE DATABASE pv011;
     Создаем пользователя и даем ему доступ к новой БД
     (логин - pv011_user, пароль - pv011_pass)
     >> GRANT ALL PRIVILEGES ON pv011.* 
@@ -97,7 +97,6 @@ catch( PDOException $ex ) {
 }?></p>
 <p>
     DML - язык манипулирования данными
-
 <?php
 $x = random_int(1000, 10000) ;
 $s = bin2hex( random_bytes(8) ) ;
@@ -110,11 +109,9 @@ catch( PDOException $ex ) {
     echo $ex->getMessage() ;
 }?>
 </p>
-
 <p>
     DML. SELECT
-<!-- <?php
-
+<?php
 $sql = "SELECT * FROM `demo` " ;  // ``(MySQL) - аналог [] (MS SQL)
 try {
     $res = $connection->query( $sql ) ;   // ~table (таблица рез-тов)
@@ -127,9 +124,8 @@ try {
 }
 catch( PDOException $ex ) {
     echo $ex->getMessage() ;
-}?>    -->
-
-<!-- </p>
+}?>   
+</p>
 Д.З. Реализовать запрос к БД на выдачу данных
 отобразить данные в виде таблицы (HTML)
 ** предполагать, что количество и названия полей заранее не известны
@@ -138,48 +134,4 @@ catch( PDOException $ex ) {
 +--------------------------------------+---------+------------------+
 | 3daf30f0-676d-11ed-a78a-14857fd97497 |    8320 | fc271461377e8525 |
 | 900ae3ec-676d-11ed-a78a-14857fd97497 |    1804 | c2ab8a241e0d5545 |
-+--------------------------------------+---------+------------------+ -->
-<br/>
-
-<?php 
-$sql = <<<SQL
- CREATE TABLE  IF NOT EXISTS  homeDz (
-    id      CHAR(36)   NOT NULL   PRIMARY KEY,
-    val_int INT,
-    val_str VARCHAR(128)
- ) Engine = InnoDB, DEFAULT CHARSET = utf8   
-SQL;
-try {
-    $connection->query( $sql ) ;
-    echo "Table 'homeDz' OK" ;
-}
-catch( PDOException $ex ) {
-    echo $ex->getMessage() ;
-}?>
-<br/>
-
-<?php
-$x = random_int(1000, 10000) ;
-$s = bin2hex( random_bytes(8) ) ;
-$sql = "INSERT INTO homeDz VALUES( UUID(), $x, '$s' ) " ;
-try {
-    $connection->query( $sql ) ;
-    echo "INSERT OK" ;
-}
-catch( PDOException $ex ) {
-    echo $ex->getMessage() ;
-}?>
-
-<?php
-echo"<br/>";
-
-$sql = "SELECT * FROM `homeDz` " ;  // ``(MySQL) - аналог [] (MS SQL)
-try {
-    $res = $connection->query( $sql ) ;   // ~table (таблица рез-тов)
-    while( $row = $res->fetch( PDO::FETCH_ASSOC ) ) {   // строка таблицы      
-        echo "{$row['id']} {$row['val_str']} <br/>" ;
-    }  
-}
-catch( PDOException $ex ) {
-    echo $ex->getMessage() ;
-}?>   
++--------------------------------------+---------+------------------+

@@ -1,36 +1,33 @@
      <?php include "_auth.php"; ?>
-     <?php if(isset($view_data['r_error'] )): ?>
-        <div class ="r_error"><?=  $view_data['r_error'] ?></div>
-    <?php endif ?>
-
-    <?php if(isset($view_data['r_ok'] )): ?>
-        <div class ="r_error"><?=  $view_data['r_ok'] ?></div>
-    <?php endif ?>
+     
        
 
     <form action="/controllers/register_controller.php" method="post" class="registerForm" enctype="multipart/form-data">
        
         <label>Логін <br/> 
-            <input name="login"  value='<?= (isset($view_data['login']) ? $view_data['login'] : "")  ?>'/>
+            <input name="login" value='<?= (isset($_SESSION['login']) ? $_SESSION['login'] : "")  ?>'/>
         </label>
-        
+        <span style="color: #05330c;"><?=(isset($error['login']) ? $error['login'] : "")?></span>
         <br/>
         <label>Ім'я <br/>
-            <input name="name" value='<?= (isset($view_data['name']) ? $view_data['name'] : "") ?>'/>
+            <input name="name" value='<?= (isset($_SESSION['name']) ? $_SESSION['name'] : "") ?>'/>
         </label>
-        
+        <span style="color: #05330c;"><?=(isset($error['name'])? $error['name'] : "")?></span>
         <br/>
         <label>Пароль </span><br/>
             <input name="password" type="password" >
         </label>
+        <span style="color: #05330c;"><?=(isset($error['pass'])? $error['pass'] : "")?></span>
         <br/>
         <label>Підтвердження пароля <br/>
             <input type="password" name="confirm" >            
         </label>
+        <span style="color: #05330c;"><?=(isset($error['confirm'])? $error['confirm'] : "")?></span>
         <br/>
         <label>E-mail<br/>
-            <input type="email" name="email"  value='<?= (isset($view_data['email']) ? $view_data['email'] : "")?>'/>            
+            <input type="email" name="email"  value='<?= (isset($_SESSION['email']) ? $_SESSION['email'] : "")?>'/>            
         </label>
+        <span style="color: #05330c;"><?=(isset($error['email'])? $error['email'] : "")?></span>
         <br/>
         <label>Фото<br/>
             <input type="file" name="avatar" />

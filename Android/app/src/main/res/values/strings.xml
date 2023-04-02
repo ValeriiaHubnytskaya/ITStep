@@ -1,0 +1,44 @@
+<resources>
+    <string name="app_name">Android-011</string>
+    <!-- Main Activity-->
+    <string name="title_text">Android basics</string>
+    <string name="button_name">ADD !</string>
+    <string name="button_del">DELL !</string>
+    <string name="button_calc_text">Calculator</string>
+
+    <!-- Main Activity-->
+    <string name="button_btn_percent_txt">%</string>
+    <string name="button_btn_ce_txt">CE</string>
+    <string name="button_btn_c_txt">C</string>
+    <string name="button_btn_backspace_txt">\u232B</string>
+
+    <string name="button_btn_x_txt">\u00B9/\u2093</string>
+    <string name="button_btn_f2_txt">\u2093\u00B2</string>
+    <string name="button_btn_f3_txt">\u00B2\u221A\u2093</string>
+    <string name="button_btn_div_txt">\u00F7</string>
+
+    <string name="button_btn_7_txt">7</string>
+    <string name="button_btn_8_txt">8</string>
+    <string name="button_btn_9_txt">9</string>
+    <string name="button_btn_mul_txt">\u00D7</string>
+
+    <string name="button_btn_4_txt">4</string>
+    <string name="button_btn_5_txt">5</string>
+    <string name="button_btn_6_txt">6</string>
+    <string name="button_btn_sub_txt">\u2212</string>
+
+    <string name="button_btn_1_txt">1</string>
+    <string name="button_btn_2_txt">2</string>
+    <string name="button_btn_3_txt">3</string>
+    <string name="button_btn_add_txt">\u002B</string>
+
+    <string name="button_btn_fn3_txt">+\u2215\u2212</string>
+    <string name="button_btn_0_txt">0</string>
+    <string name="button_btn_fn4_txt">,</string>
+    <string name="button_btn_res_txt">=</string>
+
+
+
+
+
+</resources>
