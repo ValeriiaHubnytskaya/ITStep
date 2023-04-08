@@ -1,44 +1,40 @@
 <resources>
     <string name="app_name">Android-011</string>
-    <!-- Main Activity-->
+
+    <!-- Main Activity -->
     <string name="title_text">Android basics</string>
-    <string name="button_name">ADD !</string>
-    <string name="button_del">DELL !</string>
     <string name="button_calc_text">Calculator</string>
 
-    <!-- Main Activity-->
-    <string name="button_btn_percent_txt">%</string>
-    <string name="button_btn_ce_txt">CE</string>
-    <string name="button_btn_c_txt">C</string>
-    <string name="button_btn_backspace_txt">\u232B</string>
-
-    <string name="button_btn_x_txt">\u00B9/\u2093</string>
-    <string name="button_btn_f2_txt">\u2093\u00B2</string>
-    <string name="button_btn_f3_txt">\u00B2\u221A\u2093</string>
-    <string name="button_btn_div_txt">\u00F7</string>
-
-    <string name="button_btn_7_txt">7</string>
-    <string name="button_btn_8_txt">8</string>
-    <string name="button_btn_9_txt">9</string>
-    <string name="button_btn_mul_txt">\u00D7</string>
-
-    <string name="button_btn_4_txt">4</string>
-    <string name="button_btn_5_txt">5</string>
-    <string name="button_btn_6_txt">6</string>
-    <string name="button_btn_sub_txt">\u2212</string>
-
-    <string name="button_btn_1_txt">1</string>
-    <string name="button_btn_2_txt">2</string>
-    <string name="button_btn_3_txt">3</string>
-    <string name="button_btn_add_txt">\u002B</string>
-
-    <string name="button_btn_fn3_txt">+\u2215\u2212</string>
-    <string name="button_btn_0_txt">0</string>
-    <string name="button_btn_fn4_txt">,</string>
-    <string name="button_btn_res_txt">=</string>
-
-
-
+    <!-- Calc Activity -->
+    <string name="calc_error_parse">Argument parse error</string>
+    <string name="calc_error_zero">Division by zero</string>
+    <string name="calc_error_sqrt">Negative under root</string>
+    <string name="calc_btn_percent_text">%</string>
+    <string name="calc_btn_ce_text">CE</string>
+    <string name="calc_btn_clear_text">C</string>
+    <string name="calc_btn_backspace_text">\u232B</string>
+    <string name="calc_btn_inverse_text">\u00b9\u2044\u2093</string>
+    <string name="calc_btn_square_text">x\u00B2</string>
+    <string name="calc_btn_sqrt_text">\u221A\u2093</string>
+    <string name="calc_btn_divide_text">\u00F7</string>
+    <string name="calc_btn_multiplication_text">\u2715</string>
+    <string name="calc_btn_minus_text">\u2212</string>
+    <string name="calc_btn_plus_text">\uFF0B</string>
+    <string name="calc_btn_plus_minus_text">\u207A\u2215\u208B</string>
+    <string name="calc_btn_comma_text">,</string>
+    <string name="calc_btn_equal_text">\uFF1D</string>
+    <string name="calc_btn_0_text">\u0298</string>
+    <string name="calc_btn_1_text">1</string>
+    <string name="calc_btn_2_text">2</string>
+    <string name="calc_btn_3_text">3</string>
+    <string name="calc_btn_4_text">4</string>
+    <string name="calc_btn_5_text">5</string>
+    <string name="calc_btn_6_text">6</string>
+    <string name="calc_btn_7_text">7</string>
+    <string name="calc_btn_8_text">8</string>
+    <string name="calc_btn_9_text">9</string>
+    <string name="calc_minus_sign">\u2212</string>
+    <string name="calc_comma">\u002C</string>
 
 
 </resources>

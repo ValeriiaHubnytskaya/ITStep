@@ -20,18 +20,6 @@
         android:textStyle="bold" />
 
     <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/button_name"/>
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/button_del" />
-
-    <Button
         android:id="@+id/button_calc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
