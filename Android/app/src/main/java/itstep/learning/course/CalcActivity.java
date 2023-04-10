@@ -1,9 +1,12 @@
 package itstep.learning.course;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -16,10 +19,11 @@ import kotlin.Suppress;
 public class CalcActivity extends AppCompatActivity {
     private TextView tvHistory;
     private TextView tvResult;
+    private String comma;
     private String minusSign;
     private String zeroSymbol;
     private boolean needClear; //необходимость очистить экран
-    private String comma;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,7 +55,29 @@ public class CalcActivity extends AppCompatActivity {
         findViewById(R.id.calc_btn_ce).setOnClickListener(this::clearEditClear);
         findViewById(R.id.calc_btn_square).setOnClickListener(this::squareClick);
         findViewById(R.id.calc_btn_comma).setOnClickListener(this::commaClick);
+        findViewById(R.id.calc_btn_inverse).setOnClickListener(this::inverseClick);
 
+    }
+    //При измененние конфигурации устройства, перезапускается активность и данные исчезают
+
+
+
+
+    @Override
+    protected void onSaveInstanceState(@Nullable Bundle savingState) {
+        super.onSaveInstanceState(savingState);
+        Log.d("CalcActivity", "onSaveInstanceState");
+        //добавляем к сохранеямым данным свои значения
+        savingState.putCharSequence("history", tvHistory.getText());
+        savingState.putCharSequence("result", tvResult.getText());
+    }
+    // Вызов при восстановлении конфигурации
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedState) {
+        super.onRestoreInstanceState(savedState);
+        Log.d("CalcActivity", "onRestoreInstanceState");
+        tvHistory.setText(savedState.getCharSequence("history"));
+        tvResult.setText(savedState.getCharSequence("result"));
     }
     private void commaClick(View view) {
         String result = tvResult.getText().toString();
@@ -60,6 +86,30 @@ public class CalcActivity extends AppCompatActivity {
         }
         result += comma;
         displayResult(result);
+    }
+    private void inverseClick(View view){
+        String result = tvResult.getText().toString();
+        double arg;
+        try {
+            arg = Double.parseDouble(
+                    result
+                            .replace(minusSign, "-")
+                            .replaceAll(zeroSymbol, "0")
+                            .replace(comma, ".")
+            );
+        }
+        catch (NumberFormatException | NullPointerException ignored) {
+            Toast.makeText(
+                            this,
+                            R.string.calc_error_parse,
+                            Toast.LENGTH_SHORT)
+                    .show();
+            return;
+        }
+        tvHistory.setText("1/" + result + " =");
+        arg = 1 / arg;
+        displayResult(arg);
+        needClear = true;
     }
     private void squareClick(View view) {
         String result = tvResult.getText().toString();
@@ -76,7 +126,7 @@ public class CalcActivity extends AppCompatActivity {
                     Toast.LENGTH_SHORT).show();
             return;
         }
-        tvHistory.setText(result + "^2 = ");
+        tvHistory.setText(getString( R.string.calc_square_history, result));
         arg *= arg;
         displayResult(arg);
         needClear = true;
