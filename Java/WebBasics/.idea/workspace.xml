@@ -9,7 +9,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="42026725-be2b-4412-afc7-81f0b7d55de5" name="Changes" comment="." />
+    <list default="true" id="42026725-be2b-4412-afc7-81f0b7d55de5" name="Changes" comment=".">
+      <change beforePath="$PROJECT_DIR$/../../PHP/log/access.log" beforeDir="false" afterPath="$PROJECT_DIR$/../../PHP/log/access.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../termPaperPHP/www/_auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../termPaperPHP/www/_auth.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../termPaperPHP/www/controllers/register_controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../termPaperPHP/www/controllers/register_controller.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../termPaperPHP/www/db.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../termPaperPHP/www/db.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../termPaperPHP/www/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../termPaperPHP/www/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../termPaperPHP/www/logOut.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../termPaperPHP/www/logOut.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../termPaperPHP/www/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../termPaperPHP/www/register.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -63,7 +71,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "com.google.cloudcode.ide_session_index": "20230303_0003",
+    "com.google.cloudcode.ide_session_index": "20230410_0001",
     "last_opened_file_path": "C:/Users/Valerii/source/repos/ValeriiaHubnytskaya/ITStep/Java",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -353,6 +361,8 @@
       <workItem from="1677688874324" duration="670000" />
       <workItem from="1677839641558" duration="1184000" />
       <workItem from="1677842668876" duration="13172000" />
+      <workItem from="1680445456033" duration="2497000" />
+      <workItem from="1681128463937" duration="637000" />
     </task>
     <servers />
   </component>
