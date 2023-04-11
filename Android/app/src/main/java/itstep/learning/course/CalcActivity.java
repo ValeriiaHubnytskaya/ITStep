@@ -5,7 +5,12 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.VibrationEffect;
+import android.os.Vibrator;
+import android.os.VibratorManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -22,6 +27,10 @@ public class CalcActivity extends AppCompatActivity {
     private String comma;
     private String minusSign;
     private String zeroSymbol;
+    private String plusSymbol;
+    private String minusSymbol;
+    private String mulSymbol;
+    private String divSymbol;
     private boolean needClear; //необходимость очистить экран
 
     @Override
@@ -32,6 +41,10 @@ public class CalcActivity extends AppCompatActivity {
         minusSign = getString(R.string.calc_minus_sign);
         zeroSymbol = getString(R.string.calc_btn_0_text);
         comma = getString(R.string.calc_comma);
+        plusSymbol = getString(R.string.calc_btn_plus_text);
+        minusSymbol = getString(R.string.calc_btn_minus_text);
+        mulSymbol = getString(R.string.calc_btn_multiplication_text);
+        divSymbol = getString(R.string.calc_btn_divide_text);
 
         tvHistory = findViewById(R.id.tv_history);
         tvResult = findViewById(R.id.tv_result);
@@ -56,6 +69,15 @@ public class CalcActivity extends AppCompatActivity {
         findViewById(R.id.calc_btn_square).setOnClickListener(this::squareClick);
         findViewById(R.id.calc_btn_comma).setOnClickListener(this::commaClick);
         findViewById(R.id.calc_btn_inverse).setOnClickListener(this::inverseClick);
+        findViewById(R.id.calc_btn_sqrt).setOnClickListener(this::sqrtClick);
+
+       // findViewById(R.id.calc_btn_percent).setOnClickListener(this::percentClick);
+
+        findViewById(R.id.calc_btn_plus).setOnClickListener(this::operatorClick);
+        findViewById(R.id.calc_btn_minus).setOnClickListener(this::operatorClick);
+        findViewById(R.id.calc_btn_multiply).setOnClickListener(this::operatorClick);
+        findViewById(R.id.calc_btn_divide).setOnClickListener(this::operatorClick);
+//        findViewById(R.id.calc_btn_equal).setOnClickListener(this::equalClick);
 
     }
     //При измененние конфигурации устройства, перезапускается активность и данные исчезают
@@ -79,6 +101,123 @@ public class CalcActivity extends AppCompatActivity {
         tvHistory.setText(savedState.getCharSequence("history"));
         tvResult.setText(savedState.getCharSequence("result"));
     }
+    private void operatorClick(View view){
+        String result = tvResult.getText().toString();
+        double arg;
+        try {
+            arg = Double.parseDouble(
+                    result
+                            .replace(minusSign, "-")
+                            .replaceAll(zeroSymbol, "0")
+                            .replace(comma, ".")
+            );
+        }
+        catch (NumberFormatException | NullPointerException ignored) {
+            Toast.makeText(
+                            this,
+                            R.string.calc_error_parse,
+                            Toast.LENGTH_SHORT)
+                    .show();
+            return;
+        }
+        switch (view.getId()) {
+            case R.id.calc_btn_plus:
+                tvHistory.setText(arg + " + " + result);
+                arg += arg;
+                displayResult(arg);
+                needClear = true;
+                break;
+            case R.id.calc_btn_minus:
+                tvHistory.setText(arg + " - " + result);
+                arg -= arg;
+                displayResult(arg);
+                needClear = true;
+                break;
+            case R.id.calc_btn_multiply:
+                tvHistory.setText(arg + " * " + result);
+                arg *= arg;
+                displayResult(arg);
+                needClear = true;
+                break;
+            case R.id.calc_btn_divide:
+                tvHistory.setText(arg + " / " + result);
+                arg /= arg;
+                displayResult(arg);
+                needClear = true;
+                break;
+        }
+        tvHistory.setText("1/" + result + " =");
+        arg = 1 / arg;
+        displayResult(arg);
+        needClear = true;
+    }
+
+
+    private void sqrtClick(View view) {
+        String result = tvResult.getText().toString();
+        double arg;
+        try {
+            arg = Double.parseDouble(result
+                    .replace(minusSign, "-")
+                    .replaceAll(zeroSymbol, "0")
+                    .replace(comma, ",")
+            );
+        }
+        catch (NumberFormatException | NullPointerException ignore) {
+            Toast.makeText(this,
+                    R.string.calc_error_parse,
+                    Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if( arg < 0 ) {
+            // Корень из отрицательного числа не извлекается (в действительных числах)
+            /* Доступ к системным устройствам на примере вибрации
+            Прежде всего, нужно получить разрешение на использование устройства.
+            Некоторые устройства не требуют подтверждение от пользователя, но все они
+            должны запросить разрешение от системы.
+            Заявка на доступ к устройствам (и другие разрешения) указываются в манифесте
+            <uses-permission android:name="android.permission.VIBRATE"/>
+            Дальнейшая работа с устройством может зависеть от версии API на которую рассчитано
+            приложение.
+            */
+            /* Самый простой подход - deprecated from O (Oreo, API 26)
+            Vibrator vibrator = (Vibrator) getSystemService( Context.VIBRATOR_SERVICE ) ;
+            vibrator.vibrate( 250 ) ; // вибрация 250 мс
+            */
+            // начиная с S (API 31) изменились правила доступа к устройствам
+            Vibrator vibrator ;
+            if( Build.VERSION.SDK_INT >= Build.VERSION_CODES.S ) {
+                VibratorManager vibratorManager = (VibratorManager)
+                        getSystemService( Context.VIBRATOR_MANAGER_SERVICE ) ;
+                vibrator = vibratorManager.getDefaultVibrator() ;
+            }
+            else {
+                vibrator = (Vibrator) getSystemService( Context.VIBRATOR_SERVICE ) ;
+            }
+
+                // шаблон вибрации 1 - пауза, 2 - работа, 3 - пауза, 4 - работа, .....
+            long[] vibratePattern = { 0, 200, 100, 200 } ;
+
+            if( Build.VERSION.SDK_INT >= Build.VERSION_CODES.O ) {
+            // однократное включение
+            // vibrator.vibrate( VibrationEffect.createOneShot( 250, VibrationEffect.DEFAULT_AMPLITUDE ) ) ;
+
+                vibrator.vibrate(
+                        VibrationEffect.createWaveform(
+                                vibratePattern, -1 // индекс повтора, -1 - без повторов, один раз
+                        )
+                ) ;
+            }
+            else {
+                //vibrator.vibrate( 250 ) ; // вибрация 250 мс
+                vibrator.vibrate(vibratePattern, -1);
+            }
+
+        }
+    }
+
+
+
     private void commaClick(View view) {
         String result = tvResult.getText().toString();
         if (result.length() >= 10 || result.contains(comma)) {
