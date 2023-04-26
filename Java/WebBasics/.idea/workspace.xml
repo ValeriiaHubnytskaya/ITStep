@@ -13,9 +13,10 @@
       <change beforePath="$PROJECT_DIR$/../../PHP/log/access.log" beforeDir="false" afterPath="$PROJECT_DIR$/../../PHP/log/access.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../termPaperPHP/www/_auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../termPaperPHP/www/_auth.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../termPaperPHP/www/controllers/register_controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../termPaperPHP/www/controllers/register_controller.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../termPaperPHP/www/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../termPaperPHP/www/css/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../termPaperPHP/www/db.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../termPaperPHP/www/db.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../termPaperPHP/www/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../termPaperPHP/www/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../termPaperPHP/www/logOut.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../termPaperPHP/www/logOut.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../termPaperPHP/www/logOut.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../termPaperPHP/www/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../termPaperPHP/www/register.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -362,7 +363,7 @@
       <workItem from="1677839641558" duration="1184000" />
       <workItem from="1677842668876" duration="13172000" />
       <workItem from="1680445456033" duration="2497000" />
-      <workItem from="1681128463937" duration="1510000" />
+      <workItem from="1681128463937" duration="2092000" />
     </task>
     <servers />
   </component>

@@ -1,40 +1,36 @@
-     <?php include "_auth.php"; ?>
-     
-       
+<?php if(isset($view_data['reg_error'] )): ?>
+    <div class ="reg-error"><?=  $view_data['reg_error'] ?></div>
+    <?php endif ?>
 
-    <form action="/controllers/register_controller.php" method="post" class="registerForm" enctype="multipart/form-data">
-       
-        <label>Логін <br/> 
-            <input name="login" value='<?= (isset($_SESSION['login']) ? $_SESSION['login'] : "")  ?>'/>
-        </label>
-        <span style="color: #05330c;"><?=(isset($error['login']) ? $error['login'] : "")?></span>
-        <br/>
-        <label>Ім'я <br/>
-            <input name="name" value='<?= (isset($_SESSION['name']) ? $_SESSION['name'] : "") ?>'/>
-        </label>
-        <span style="color: #05330c;"><?=(isset($error['name'])? $error['name'] : "")?></span>
-        <br/>
-        <label>Пароль </span><br/>
-            <input name="password" type="password" >
-        </label>
-        <span style="color: #05330c;"><?=(isset($error['pass'])? $error['pass'] : "")?></span>
-        <br/>
-        <label>Підтвердження пароля <br/>
-            <input type="password" name="confirm" >            
-        </label>
-        <span style="color: #05330c;"><?=(isset($error['confirm'])? $error['confirm'] : "")?></span>
-        <br/>
-        <label>E-mail<br/>
-            <input type="email" name="email"  value='<?= (isset($_SESSION['email']) ? $_SESSION['email'] : "")?>'/>            
-        </label>
-        <span style="color: #05330c;"><?=(isset($error['email'])? $error['email'] : "")?></span>
-        <br/>
-        <label>Фото<br/>
-            <input type="file" name="avatar" />
-        </label>
-        <br/>
-        <button type="submit">Зареєструватися</button>
+    <?php if(isset($view_data['reg_ok'] )): ?>
+    <div class ="reg_error"><?=  $view_data['reg_ok'] ?></div>
+    <?php endif ?>
     
-    </form>  
 
-<!-- required -->
+<form method="post" class="registerForm" enctype="multipart/form-data">
+    <label>Логін <br/>
+        <input name="login" value='<?= (isset($view_data['login'])) ? $view_data['login'] : "" ?>' />
+    </label>
+    <br/>
+    <label>Ім'я<br/>
+        <input name="name" value='<?= (isset($view_data['name'])) ? $view_data['name'] : "" ?>'/>
+    </label>
+        <br/>
+    <label>Пароль<br/>
+        <input name="password" type="password" >
+    </label>
+        <br/>
+    <label>Підтвердження пароля<br/>
+        <input type="password" name="confirm">
+    </label>
+        <br/>
+    <label>E-mail<br/>
+        <input type="email" name="email"  value='<?= (isset($view_data['email'])) ? $view_data['email'] : "" ?>' />
+    </label>
+     <br/>
+    <label>Фото<br/>
+        <input type="file" name="avatar" />
+    </label>
+     <br/>
+    <button>Зареєструватися</button>
+</form>

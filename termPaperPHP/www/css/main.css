@@ -1,8 +1,10 @@
 body{
-    background-image: url("https://img.freepik.com/free-photo/composition-of-bathroom-or-spa-objects_23-2147999911.jpg?w=740&t=st=1677680354~exp=1677680954~hmac=00bf414835db4372203104e18ebd752cba6263107db5189d23f22910a04fd3ce");
-    /* background-position: center; */
-    background-size: cover;
-    font-family: 'Caveat',cursive;
+    /* background-image: url("https://img.freepik.com/free-photo/composition-of-bathroom-or-spa-objects_23-2147999911.jpg?w=740&t=st=1677680354~exp=1677680954~hmac=00bf414835db4372203104e18ebd752cba6263107db5189d23f22910a04fd3ce"); */
+    background-image: url("https://phonoteka.org/uploads/posts/2021-06/1623013315_6-phonoteka_org-p-mramor-s-zolotimi-prozhilkami-tekstura-kra-8.jpg");
+    background-position: center;
+    /* background-size: cover; */
+    /* background:rgba(44, 110, 44, 0.466); */
+    /* font-family: 'Caveat',cursive; */
 }
 
 /* Головна сторінка  */
@@ -10,39 +12,37 @@ body{
 display: flex;
 flex-direction: row;
 font-weight: 200;
-background: rgba(252, 252, 252, 0.555);
+background: rgba(41, 39, 41, 0.190);
+
+/* background: rgba(255, 217, 0, 0.2); */
 
 }
-
+h2{
+text-align: center;
+padding: 10px;
+color: rgb(85, 68, 22);
+}
 .menu .title h1{
     margin-left:30px ;   
-    text-shadow: rgb(63, 143, 45) 6px 9px 9px;
-    color: rgba(0, 0, 0, 0.863);
-    margin-top:15px;
-    font-size: 30px;
-    letter-spacing: .2rem;
+    text-shadow: rgb(255, 255, 255) 10px 10px 10px;
+    color: rgb(85, 68, 22);
+    margin-top:20px;
+    font-size: 28px;
     
 }
 .menu .funct{
     display: flex;
     flex-direction: row;
-    margin-left: 18%;
+    margin-left: 22%;
 }
 .menu  a{
     padding: 10px;
     font-size: 19px;
-    margin: 1.2% auto;   
-    text-shadow: rgb(63, 143, 45) 6px 9px 9px;
-    color: rgba(0, 0, 0, 0.863);
-    letter-spacing: .1rem;
+    margin: auto;   
+    text-shadow: rgb(255, 255, 255) 10px 10px 10px;
+    color: rgb(85, 68, 22);
     text-decoration: none;
    
-}
-.menu .material-symbols-outlined{
-    font-size: 30px;
-    margin: 1.8% auto;  
-    /* text-shadow: rgb(204, 6, 49) 6px 9px 9px; */
-    color: rgba(0, 0, 0, 0.863);
 }
 
 /* Реєстрація */
@@ -65,7 +65,7 @@ background: rgba(252, 252, 252, 0.555);
 
 
 .registerForm input{
-    background: rgba(6, 150, 37, 0.363);
+     background: rgba(2, 31, 8, 0.164);
     padding: 1.5%;
     border-radius: 20px;
     /* border: unset; */
@@ -91,4 +91,101 @@ background: rgba(252, 252, 252, 0.555);
     margin-left: 1%;
     max-height: 40px;
     max-width: 50px;
+}
+  /*Букетики*/
+  .product {
+    box-shadow: 0 0 35px 2px rgb(0, 0, 0); 
+    align-content: center;
+    text-align: center;
+    display: inline-block;    
+    height: 500px;
+    margin: 57px;
+    padding: 7px;
+    vertical-align: top;
+    width: 300px;
+    color: rgb(63, 51, 17);
+}
+.sort {
+    margin: auto;
+    padding: 5px;
+    font-size: 20px;
+}
+.product .img-container {
+    background-color: #eee;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 295px;
+    margin-bottom: 10px;
+    /* width: 290px; */
+}
+.product img {
+    /* margin:  */
+    display: block;
+    margin: auto;
+    max-height: 270px;
+    width: 270px;
+}
+.product h4, h5 {
+    margin: 3px;
+    padding: 0;
+    font-size: 24px;
+}
+.product h5 {
+    font-weight: normal;
+}
+.product b {
+    font-size: 22px;
+}
+/*======================Star Rating========================*/
+.rating-area {
+    overflow: hidden;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+}
+    .rating-area span {
+        font-size: 28px;
+    }
+
+    .rating-area:not(:checked) > input {
+        display: none;
+    }
+
+    .rating-area:not(:checked) > label {
+        float: right;
+        width: 42px;
+        padding: 0;
+        cursor: pointer;
+        font-size: 32px;
+        line-height: 32px;
+        color: lightgrey;
+        text-shadow: 1px 1px #bbb;
+    }
+
+        .rating-area:not(:checked) > label:before {
+            content: '★';
+        }
+
+    .rating-area > input:checked ~ label {
+        color: gold;
+        text-shadow: 1px 1px #c60;
+    }
+
+    .rating-area:not(:checked) > label:hover,
+    .rating-area:not(:checked) > label:hover ~ label {
+        color: gold;
+    }
+
+    .rating-area > input:checked + label:hover,
+    .rating-area > input:checked + label:hover ~ label,
+    .rating-area > input:checked ~ label:hover,
+    .rating-area > input:checked ~ label:hover ~ label,
+    .rating-area > label:hover ~ input:checked ~ label {
+        color: gold;
+        text-shadow: 1px 1px goldenrod;
+    }
+
+.rate-area > label:active {
+    position: relative;
 }

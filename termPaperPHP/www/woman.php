@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-<?php include "_auth.php" ?>
+
     <h1>woman</h1>
 </body>
 </html>

@@ -1,39 +1,39 @@
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edje">
-    <title>Flowers</title>
-    <link  href="/css/main.css" rel="stylesheet" >
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-</head>
-<body>
-    <section class="menu">
-        <header class="title"> 
-            <h1>Квіткова крамничка<span class="material-symbols-outlined">local_florist</span></h1>
-        </header>
+<?php if( is_array( $_CONTEXT[ 'auth_user' ] ) ) { ?>
+    <b>Hello, <?= $_CONTEXT[ 'auth_user' ][ 'name' ] ?></b>
 
-        <nav class="funct">
-            <span class="material-symbols-outlined">face_3</span><a href="index.php"> <b>Букет для коханої</b></a>
-            <span class="material-symbols-outlined">face</span><a href="man.php"> <b>Букет для коханого</b></a>
-            <span class="material-symbols-outlined">shopping_cart</span><a href="woman.php"> <b>Кошик</b> </a> 
-            <span class="material-symbols-outlined">person</span><a href="logOut.php"><b> Вхід</b></a>
-            <span class="material-symbols-outlined">group_add</span><a href="register.php"><b>Зареєструватися</b></a>
-        </nav>
-    </section>
-</body>
-</html>
+<a href="/profile/<?= $_CONTEXT['auth_user']['login'] ?>">
+    <img class='user-avatar' src='/avatars/<?= empty($_CONTEXT['auth_user']['avatar']) ? 'no-avatar.png' : $_CONTEXT['auth_user']['avatar'] ?>' />
+</a>
 
- <!-- <label><input name="userlogin" placeholder="логін" /></label>
-        <label><input name="userpassw" type="password" placeholder="пароль"/></label> -->
+    <?php  // проверка на неподтвержденную почту, показ поля для кода
+        if( $_CONTEXT[ 'auth_user' ][ 'confirm' ] != null ) {
+            // почта не подтверждена ?>
+        <input id='confirm-code' />
+        <input type='button' value="Ok" onclick="confirmCode()" />
+        <script>
+            function confirmCode() {
+                window.location = "/confirm?code=" +
+                document.getElementById('confirm-code').value ;
+            }
+        </script>
+    <?php }
+    ?>
+    
+ <!-- Кнопка выхода из авторизованного режима - ссылка передающая параметр "logout" -->
+        <a class="logout" href="?logout"> Log Out </a>
+    <?php } else {  ?>
+    <form method="post" class="registerForm">
+        <label>Логін <br/>
+            <input name="userlogin" />
+        </label>
+        <br/>
+        <label>Пароль <br/>
+            <input name="userpassw" type="password" />
+        </label>
+        <br/> 
+        <button >Ввійти</button>
+    </form>
+
+    <?php if(isset($_CONTEXT['auth_error'])) {echo $_CONTEXT['auth_error'];} ?>
+    <?php }  ?>  
