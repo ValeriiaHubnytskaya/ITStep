@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -52,11 +51,11 @@
                     android:background="@color/game_bg_4096"
                     android:gravity="center"
                     android:paddingVertical="7dp"
+                    android:text="score\n69.6k"
                     android:textAllCaps="true"
                     android:textColor="@color/game_fg_4096"
                     android:textSize="20sp"
-                    android:textStyle="bold"
-                    tools:text="score\n69.6k"/>
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/game_tv_best_score"
@@ -67,11 +66,11 @@
                     android:background="@color/game_bg_4096"
                     android:gravity="center"
                     android:paddingVertical="7dp"
+                    android:text="best\n69.6k"
                     android:textAllCaps="true"
                     android:textColor="@color/game_fg_4096"
                     android:textSize="20sp"
-                    android:textStyle="bold"
-                    tools:text="best\n69.6k"/>
+                    android:textStyle="bold" />
             </LinearLayout>
 
             <LinearLayout
@@ -80,7 +79,6 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/new_game"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="3dp"
@@ -91,11 +89,9 @@
                     android:textColor="@color/game_fg_64"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    app:backgroundTint="@null"
-                    style="?android:attr/buttonBarButtonStyle" />
+                    app:backgroundTint="@null" />
 
                 <Button
-                    android:id="@+id/undo"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="3dp"
@@ -106,8 +102,7 @@
                     android:textColor="@color/game_fg_64"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    app:backgroundTint="@null"
-                    style="?android:attr/buttonBarButtonStyle" />
+                    app:backgroundTint="@null" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
@@ -116,11 +111,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="@string/game_description"
-        android:textSize="22sp"
-        android:textStyle="bold"
+        android:text="Join the numbers and get to 2048"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
         app:layout_constraintVertical_bias="0.048" />
@@ -130,12 +124,12 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:orientation="vertical"
-        android:background="@color/game_field_bg"
-        android:padding="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.57"
         app:layout_constraintStart_toStartOf="parent"
+        android:padding="5dp"
+        android:background="@color/game_field_bg"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.832">
         <TableRow
@@ -143,9 +137,10 @@
             android:layout_height="0dp"
             android:layout_weight="1">
             <TextView
-                android:id="@+id/game_cell_00"
                 style="@style/GameCell_0"
-                tools:text="0"/>
+                tools:text="0"
+                android:id="@+id/game_cell_00"
+                />
             <TextView
                 android:id="@+id/game_cell_01"
                 style="@style/GameCell_2"
@@ -188,10 +183,12 @@
                 android:id="@+id/game_cell_20"
                 style="@style/GameCell_256"
                 tools:text="256"/>
+
             <TextView
                 android:id="@+id/game_cell_21"
                 style="@style/GameCell_512"
-                tools:text="512"/>
+                tools:text="512"
+                android:textColor="#5C6BC0" />
             <TextView
                 android:id="@+id/game_cell_22"
                 style="@style/GameCell_1024"
