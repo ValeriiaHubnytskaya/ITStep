@@ -24,9 +24,9 @@
         <nav class="funct">
             <a href="/shop/index"> <b>Букет для коханої</b></a>
             <a href="/shop_men/men"> <b>Букет для коханого</b></a>
-            <a href="/woman"> <b>Кошик</b> </a>
-           <a   href="/_auth/_auth"><b>Вхід</b></a>
-         <a href="/register/register"><b>Зареєструватися</b></a>
+            <a href="/shop/basket"> <b>Кошик</b> </a>           
+           <a   href="/shop/_auth"><b>Вхід</b></a>
+         <a href="/shop/register"><b>Зареєструватися</b></a>
         </nav>
       
         
@@ -36,23 +36,25 @@
     if(empty($path_parts[2])) 
     $path_parts[2] = 'index';
    
-        switch( $path_parts[2]){
-          
+        switch( $path_parts[2]){          
             case 'index'        :
             case 'fundamentals' :
             case 'men'          :
             case 'db'           : 
-            case '_auth'        :           
-            case 'email_test'   :
-            case 'register'     :
+             case 'register'    :  
+            case '_auth'        :             
+            case 'basket'       :
+            case 'email_test'   :           
                 include "{$path_parts[2]}.php";
                 break;
-           
             case 'profile': include "views/{$path_parts[2]}.php";
+
                 break;
             default:
-                include "error404.php";
+                // include "error404.php";
         }
+    
+        
     ?>
    
         

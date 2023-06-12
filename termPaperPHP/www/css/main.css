@@ -189,3 +189,65 @@ color: rgb(85, 68, 22);
 .rate-area > label:active {
     position: relative;
 }
+/* Кнопка замовити */
+.order {
+    background: rgb(6, 160, 6);
+    margin: 15px;
+    /* padding: 10px; */
+    color: white;
+    font-size: 20px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+/* Форма для оформлення замовлення */
+.cl_basket{
+    /* background: rgba(1, 3, 2, 0.164); */
+    display: flex;
+    flex-direction: row;
+    font-family: cursive;
+   
+}
+.cl_basket .zakaz_data{
+    background: rgba(1, 3, 2, 0.164);
+    width: 350px;
+    margin: 1%;
+    padding: 1%;
+  
+}
+.cl_basket .zakaz_data input{
+   border-radius: 5px;
+   padding: 3px;
+  
+}
+.cl_basket .zakaz_data textarea{
+    border-radius: 5px;
+    border: 2px solid rgb(71, 70, 70)
+ }
+.cl_basket .prod_data{
+    background: rgba(1, 3, 2, 0.164);
+    width: 900px;
+    margin: 1%;
+    padding: 1%;
+}
+.im-basket{
+    width: 50px;
+    height: auto;
+    border: 1px solid rgb(48, 38, 8);
+}
+.cont-basket {
+    padding: 5px; 
+    font-family: cursive;
+    color:  rgb(48, 38, 8);
+}
+.del{
+    color: rgb(204, 18, 18);
+    background: none;
+    border: none;
+    font-family: cursive;
+    font-size: 16px;
+    cursor: pointer;
+}
+ ul li{
+    list-style-type: none;
+   
+}

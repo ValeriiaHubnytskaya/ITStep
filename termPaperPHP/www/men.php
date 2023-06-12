@@ -4,17 +4,14 @@
     <?php endif ?>
 
 
-<div class="sort">
-Фільтрувати букет по:
-<form action="">
+    <form action="">
     <select name="sort">
-        <option value=1 <?= @$view_data[ 'sort' ] == 1 ? 'selected' : '' ?> >Новинка</option>
-        <option value=2 <?= @$view_data[ 'sort' ] == 2 ? 'selected' : '' ?> >Ціна</option>
-        <option value=3 <?= @$view_data[ 'sort' ] == 3 ? 'selected' : '' ?> >Рейтинг</option>
+    <option value=1 <?= @$view_data[ 'sort' ] == 1 ? 'selected' : '' ?>>Новинка</option>
+        <option value=2 <?= @$view_data[ 'sort' ] == 2 ? 'selected' : '' ?>>Ціна</option>
+        <option value=3 <?= @$view_data[ 'sort' ] == 3 ? 'selected' : '' ?>>Рейтинг</option>
     </select>
     <button>Застосувати</button>
 </form>
-</div>
 
 
 <?php foreach(@$view_data['products'] as $product) : ?>
@@ -41,8 +38,17 @@
                 <label for="star-2<?=$product['id']?>" title="Grade «2»"></label>
                 <input type="radio" id="star-1<?=$product['id']?>" name="rating<?=$product['id']?>" value="1" <?= ($product['rating'] <= 1) ? 'checked' : '' ?> />
                 <label for="star-1<?=$product['id']?>" title="Grade «1»"></label>
-            </div>   
-            <u>Since <?= date( "d.m.y", strtotime( $product['add_dt'] ) ) ?></u>
+            </div>  
+            <u>Since <?= date( "d.m.y", strtotime( $product['add_dt'] ) ) ?></u> 
+            <form action="/shop/basket" >
+                <input type="hidden" value="<?=$product['id']?>" name="product-id" />
+                <input type="hidden" value="<?=$product['image']?>" name="product-image" />
+                <input type="hidden" value="<?=$product['name']?>" name="product-name" />
+                <input type="hidden" value="<?=$product['price']?>" name="product-price" />
+                <input type="hidden" value="<?=$product['descr']?>" name="product-descr" />
+                <button class="order">Замовити</button>
+            </form>
+           
     </div>
 <?php endforeach ?>
 
@@ -56,8 +62,6 @@
     <input type="file"   name="image"  /><br/>
     <button>Додати</button>
 </form>
-
-<?=$view_data['add_error'] ?? '' ?>
 
 
    

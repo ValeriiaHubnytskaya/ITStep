@@ -93,7 +93,7 @@
 
             echo makeHello(), ',  ', makeHello(" User "), '<br/>';
 
-            function makeHello($user = "Admin") { //значения по умолчанию есть
+            function makeHello($user = "Administrator") { //значения по умолчанию есть
                global $x;
                 return "Hello $user" 
                 . CONST_VALUE

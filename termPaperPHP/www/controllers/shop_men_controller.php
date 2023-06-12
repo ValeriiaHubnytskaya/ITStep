@@ -90,7 +90,49 @@ else if( $_SERVER[ 'REQUEST_METHOD' ] == 'GET' ) {
         $view_data['discount'] = $_SESSION[ 'discount' ] ;
     }
     //перечень товаров
-    $sql = "SELECT * FROM manshop p ORDER BY p.add_dt DESC LIMIT 0, 10";
+    if(@$_GET['sort']){
+        $view_data['sort'] = $_GET['sort'];
+       switch($view_data['sort']){
+       
+           case 2:
+               $sql = "SELECT * FROM manshop p ORDER BY p.price ASC ";
+               try{
+                   $view_data['products'] = $_CONTEXT['connection']->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+
+               }
+               catch( PDOException $ex ) {
+                   $_CONTEXT['logger']( 'shop_controller ' . $ex->getMessage() . $sql  ) ;
+                   $view_data[ 'add_error' ] = "Server error try later" ;
+               }              
+           include "_layout.php" ;
+           break;
+           case 3: 
+               $sql = "SELECT * FROM manshop p ORDER BY p.rating DESC ";
+               try{
+                   $view_data['products'] = $_CONTEXT['connection']->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+
+               }
+               catch( PDOException $ex ) {
+                   $_CONTEXT['logger']( 'shop_controller ' . $ex->getMessage() . $sql  ) ;
+                   $view_data[ 'add_error' ] = "Server error try later" ;
+               }              
+           include "_layout.php" ;
+           break;
+           default:
+           $sql = "SELECT * FROM manshop p ORDER BY p.add_dt ASC ";
+           try{
+               $view_data['products'] = $_CONTEXT['connection']->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+
+           }
+           catch( PDOException $ex ) {
+               $_CONTEXT['logger']( 'shop_controller ' . $ex->getMessage() . $sql  ) ;
+               $view_data[ 'add_error' ] = "Server error try later" ;
+           }              
+           include "_layout.php" ;
+       }
+    }
+    else{
+    $sql = "SELECT * FROM manshop p ORDER BY p.add_dt DESC ";
     try{
         $view_data['products'] = $_CONTEXT['connection']->query($sql)->fetchAll(PDO::FETCH_ASSOC);
 
@@ -99,6 +141,6 @@ else if( $_SERVER[ 'REQUEST_METHOD' ] == 'GET' ) {
         $_CONTEXT['logger']( 'shop_controller ' . $ex->getMessage() . $sql  ) ;
         $view_data[ 'add_error' ] = "Server error try later" ;
     }              
-    include "_layout.php" ;  // ~return View
-   //header( "Location: /shop/index" ) ;
+    include "_layout.php" ;
+}
 }

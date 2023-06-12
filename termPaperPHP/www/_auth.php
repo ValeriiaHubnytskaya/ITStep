@@ -23,16 +23,25 @@
  <!-- Кнопка выхода из авторизованного режима - ссылка передающая параметр "logout" -->
         <a class="logout" href="?logout"> Log Out </a>
     <?php } else {  ?>
-    <form method="post" class="registerForm">
+    <form  action="/shop/_auth" method="post" class="registerForm">
         <label>Логін <br/>
-            <input name="userlogin" />
+            <input name="userlogin" value="<?= (isset($view_data['userlogin'])) ? $view_data['userlogin'] :"" ?>"/>
+            <br/>
+            <?php if( isset( $view_data['auth_log'] )  ) : ?>
+                           <?=  $view_data['auth_log'] ?>
+                        <?php endif ?>
         </label>
         <br/>
         <label>Пароль <br/>
             <input name="userpassw" type="password" />
+            <br/>
+            <?php if( isset( $view_data['auth_pass'] )  ) : ?>
+                           <?=  $view_data['auth_pass'] ?>
+                        <?php endif ?>
+           
         </label>
         <br/> 
-        <button >Ввійти</button>
+        <button name="form-name" value="auth">Ввійти</button>
     </form>
 
     <?php if(isset($_CONTEXT['auth_error'])) {echo $_CONTEXT['auth_error'];} ?>

@@ -1,22 +1,24 @@
+<?php  @session_start() ?>
 <?php if(isset($view_data['add_error'] )): ?>
     <div class ="reg-error"><?=  $view_data['add_error'] ?></div>
     <?php endif ?>
 
 
-<!-- <h2>Квіточки для неї</h2> -->
 <div class="sort">
 Фільтрувати букет по:
-<form action="" >
+<form action="">
     <select name="sort">
-        <option value=1 <?= @$view_data[ 'sort' ] == 1 ? 'selected' : '' ?> >Новинка</option>
-        <option value=2 <?= @$view_data[ 'sort' ] == 2 ? 'selected' : '' ?> >Ціна</option>
-        <option value=3 <?= @$view_data[ 'sort' ] == 3 ? 'selected' : '' ?> >Рейтинг</option>
+        <option value=1 <?= @$view_data[ 'sort' ] == 1 ? 'selected' : '' ?>>Новинка</option>
+        <option value=2 <?= @$view_data[ 'sort' ] == 2 ? 'selected' : '' ?>>Ціна</option>
+        <option value=3 <?= @$view_data[ 'sort' ] == 3 ? 'selected' : '' ?>>Рейтинг</option>
     </select>
     <button>Застосувати</button>
+    
 </form>
 </div>
 
-<?php foreach(@$view_data['products'] as $product) : ?>
+
+<?php  foreach(@$view_data['products'] as $product) : ?>
     <div class="product" data-id="<?=$product['id']?>">
         <div class="img-container">
             <img src="/images/<?= $product['image'] ?>" />
@@ -42,20 +44,27 @@
                 <label for="star-1<?=$product['id']?>" title="Grade «1»"></label>
             </div>   
             <u>Since <?= date( "d.m.y", strtotime( $product['add_dt'] ) ) ?></u>
+            <form action="/shop/basket" >
+                <input type="hidden" value="<?=$product['id']?>" name="product-id" />
+                <input type="hidden" value="<?=$product['image']?>" name="product-image" />
+                <input type="hidden" value="<?=$product['name']?>" name="product-name" />
+                <input type="hidden" value="<?=$product['price']?>" name="product-price" />
+                <input type="hidden" value="<?=$product['descr']?>" name="product-descr" />
+                <button class="order">Замовити</button>
+            </form>
     </div>
 <?php endforeach ?>
 
-<?php if( ! empty( $_CONTEXT[ 'auth_user' ] ) and $_CONTEXT[ 'auth_user' ][ 'role_id' ] == 'admin' ) : ?>
 
+<?php if( ! empty( $_CONTEXT[ 'auth_user' ] ) and $_CONTEXT[ 'auth_user' ] == 'Administrator' ) : ?>
 <form action="/shop" method="post" enctype="multipart/form-data" >
     <input type="text"   name="name"     placeholder="Назва" value='<?= (isset($view_data['name'])) ? $view_data['name'] : "" ?>'/><br/>
-    <textarea            name="descr"    placeholder="Опис" value='<?= (isset($view_data['descr'])) ? $view_data['descr'] : "" ?>'></textarea><br/>
+    <textarea            name="descr"    placeholder="Опис" ></textarea><br/>
     <input type="number" name="price"    placeholder="Ціна" /><br/>
     <input type="number" name="discount" placeholder="Знижка" /><br/>
     <input type="file"   name="image"  /><br/>
-    <button>Додати</button>
+    <button  name="form-name" value="product">Додати</button>
 </form>
 
 <?=$view_data['add_error'] ?? '' ?>
-
 <?php endif ?>

@@ -1,36 +1,50 @@
-<?php if(isset($view_data['reg_error'] )): ?>
-    <div class ="reg-error"><?=  $view_data['reg_error'] ?></div>
-    <?php endif ?>
 
-    <?php if(isset($view_data['reg_ok'] )): ?>
-    <div class ="reg_error"><?=  $view_data['reg_ok'] ?></div>
-    <?php endif ?>
     
 
-<form method="post" class="registerForm" enctype="multipart/form-data">
+<form action="/register" method="post" class="registerForm" enctype="multipart/form-data">
     <label>Логін <br/>
-        <input name="login" value='<?= (isset($view_data['login'])) ? $view_data['login'] : "" ?>' />
+        <input name="login" value="<?= (isset($view_data['login'])) ? $view_data['login'] :"" ?>" />
+        <br/>
+        <?php if( isset( $view_data[ 'reg_log' ] )  ) : ?>
+                           <?= $view_data[ 'reg_log' ] ?>
+                        <?php endif ?>
     </label>
     <br/>
     <label>Ім'я<br/>
-        <input name="name" value='<?= (isset($view_data['name'])) ? $view_data['name'] : "" ?>'/>
+        <input name="name" value="<?= (isset($view_data['name'])) ? $view_data['name'] : "" ?> "/>
+        <br/>
+        <?php if( isset( $view_data[ 'reg_name' ] )): ?>
+                            <?= $view_data[ 'reg_name' ] ?>
+                        <?php endif ?>
     </label>
         <br/>
     <label>Пароль<br/>
-        <input name="password" type="password" >
+        <input name="password" type="password"  >
+        <br/>
+        <?php if( isset( $view_data[ 'reg_pass' ] )): ?>
+                            <?= $view_data[ 'reg_pass' ] ?>
+                        <?php endif ?>
     </label>
         <br/>
     <label>Підтвердження пароля<br/>
         <input type="password" name="confirm">
+        <br/>
+        <?php if( isset( $view_data[ 'reg_conf' ] )) :?>
+                            <?= $view_data[ 'reg_conf' ] ?>
+                        <?php endif ?>
     </label>
         <br/>
     <label>E-mail<br/>
-        <input type="email" name="email"  value='<?= (isset($view_data['email'])) ? $view_data['email'] : "" ?>' />
+        <input type="email" name="email"  value="<?= (isset($view_data['email'])) ? $view_data['email'] : "" ?>" />
+        <br/>
+        <?php if( isset( $view_data[ 'reg_email' ] )) : ?>
+                           <?= $view_data[ 'reg_email' ] ?>
+                        <?php endif ?>
     </label>
      <br/>
     <label>Фото<br/>
-        <input type="file" name="avatar" />
+        <input type="file" name="avatar"  />
     </label>
      <br/>
-    <button>Зареєструватися</button>
+    <button name="form-name" value="register">Зареєструватися</button>
 </form>
